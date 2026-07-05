@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "risklens-ai"
+version = "0.1.0"
+description = "Risk-aware market and technology intelligence agent."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=2.6",
+  "pandas>=2.0",
+  "requests>=2.31",
+  "feedparser>=6.0",
+  "beautifulsoup4>=4.12",
+  "markdown>=3.5",
+  "jinja2>=3.1",
+  "streamlit>=1.32",
+  "python-dotenv>=1.0",
+  "PyYAML>=6.0"
+]
+
+[project.optional-dependencies]
+llm = ["openai>=1.40"]
+dev = ["pytest>=7.4"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

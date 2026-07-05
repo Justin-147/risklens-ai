@@ -1,0 +1,265 @@
+profiles:
+  financial_services:
+    display_name: Financial Services
+    required_topics:
+      - banking_ai
+      - wealth_management
+      - regulatory_policy
+      - operational_resilience
+      - model_risk
+      - digital_transformation
+    preferred_source_types:
+      - regulatory
+      - official
+      - company
+      - academic
+      - high_quality_media
+    required_tools:
+      - regulatory_fetcher_tool
+      - rss_fetcher_tool
+      - market_fetcher_tool
+      - arxiv_fetcher_tool
+    queries:
+      arxiv:
+        - banking artificial intelligence model risk
+        - financial services operational resilience AI
+      rss:
+        - banking AI governance
+        - wealth management digital transformation
+    feeds:
+      regulatory:
+        - source: Federal Reserve
+          url: https://www.federalreserve.gov/feeds/press_all.xml
+      rss:
+        - source: BIS
+          url: https://www.bis.org/list/press_releases/index.rss
+    synthetic_items:
+      regulatory_fetcher_tool:
+        - title: Synthetic regulator updates supervisory expectations for third-party AI vendors
+          source: Synthetic Regulator
+          source_type: regulatory
+          evidence_level: primary
+          summary: A synthetic supervisory bulletin asks banks to document vendor oversight, model validation, audit trails, and incident escalation for AI-enabled customer workflows.
+          url: https://example.org/risklens-demo/financial-services/regulator-ai-vendor-oversight
+        - title: Synthetic regulator reviews model risk controls in digital lending programs
+          source: Synthetic Regulator
+          source_type: regulatory
+          evidence_level: primary
+          summary: A synthetic review identifies gaps in explainability, challenger testing, and board reporting for AI-assisted credit and onboarding tools.
+          url: https://example.org/risklens-demo/financial-services/model-risk-digital-lending
+      rss_fetcher_tool:
+        - title: Synthetic company disclosure describes wealth advisor AI assistant controls
+          source: Synthetic Company Disclosure
+          source_type: company
+          evidence_level: primary
+          summary: A synthetic bank disclosure describes permissioning, human review, customer suitability guardrails, and logging for wealth management AI assistants.
+          url: https://example.org/risklens-demo/financial-services/wealth-ai-controls
+        - title: Synthetic industry media reports banks moving AI pilots into controlled production
+          source: Synthetic Industry Media
+          source_type: media
+          evidence_level: secondary
+          summary: A synthetic industry article reports that banks are moving from AI experiments to governed production workflows with stronger operational resilience checks.
+          url: https://example.org/risklens-demo/financial-services/controlled-ai-production
+        - title: Synthetic company disclosure outlines digital transformation risk committee
+          source: Synthetic Company Disclosure
+          source_type: company
+          evidence_level: primary
+          summary: A synthetic filing describes a cross-functional committee for AI change management, vendor risk, data quality, and customer communication controls.
+          url: https://example.org/risklens-demo/financial-services/transformation-risk-committee
+      arxiv_fetcher_tool:
+        - title: Synthetic academic study benchmarks hallucination risk in banking copilots
+          source: Synthetic Academic Source
+          source_type: academic
+          evidence_level: secondary
+          summary: A synthetic research note compares retrieval controls, evaluation datasets, and escalation policies for banking copilots used in regulated workflows.
+          url: https://example.org/risklens-demo/financial-services/academic-banking-copilot-risk
+        - title: Synthetic academic source evaluates operational resilience of AI decision support
+          source: Synthetic Academic Source
+          source_type: academic
+          evidence_level: secondary
+          summary: A synthetic paper studies fallback procedures, monitoring thresholds, and incident response for AI decision support in financial institutions.
+          url: https://example.org/risklens-demo/financial-services/academic-ai-resilience
+      market_fetcher_tool:
+        - title: Synthetic market adapter flags rising spend on bank AI governance tooling
+          source: Synthetic Market Data Adapter
+          source_type: market
+          evidence_level: secondary
+          summary: A synthetic market signal indicates increasing procurement activity for AI monitoring, policy enforcement, and model inventory platforms.
+          url: https://example.org/risklens-demo/financial-services/market-ai-governance-spend
+        - title: Synthetic central bank note highlights operational resilience investment
+          source: Synthetic Central Bank
+          source_type: official
+          evidence_level: primary
+          summary: A synthetic central bank note links technology modernization with resilience testing, third-party concentration monitoring, and governance reporting.
+          url: https://example.org/risklens-demo/financial-services/central-bank-resilience-investment
+
+  fintech_web3_risk:
+    display_name: FinTech and Web3 Risk
+    required_topics:
+      - stablecoins
+      - crypto_market_structure
+      - regulation
+      - cybersecurity
+      - operational_risk
+      - liquidity_risk
+      - reputational_risk
+    preferred_source_types:
+      - regulatory
+      - official
+      - market
+      - high_quality_media
+      - cybersecurity_source
+    required_tools:
+      - regulatory_fetcher_tool
+      - rss_fetcher_tool
+      - market_fetcher_tool
+    queries:
+      arxiv:
+        - stablecoin reserve transparency risk
+        - crypto custody cybersecurity operational risk
+      rss:
+        - stablecoin regulation custody cyber risk
+    feeds:
+      regulatory:
+        - source: SEC
+          url: https://www.sec.gov/news/pressreleases.rss
+      rss:
+        - source: BIS
+          url: https://www.bis.org/list/press_releases/index.rss
+    synthetic_items:
+      regulatory_fetcher_tool:
+        - title: Synthetic regulator proposes stablecoin reserve transparency template
+          source: Synthetic Regulator
+          source_type: regulatory
+          evidence_level: primary
+          summary: A synthetic consultation proposes daily reserve attestations, redemption liquidity disclosures, and incident reporting for stablecoin issuers.
+          url: https://example.org/risklens-demo/fintech-web3/stablecoin-reserve-template
+        - title: Synthetic enforcement note highlights custody control failures at crypto intermediary
+          source: Synthetic Regulator
+          source_type: regulatory
+          evidence_level: primary
+          summary: A synthetic enforcement signal cites weak segregation, incomplete cyber monitoring, and delayed customer notifications after a custody incident.
+          url: https://example.org/risklens-demo/fintech-web3/custody-control-enforcement
+      rss_fetcher_tool:
+        - title: Synthetic industry media maps crypto market structure reform proposals
+          source: Synthetic Industry Media
+          source_type: media
+          evidence_level: secondary
+          summary: A synthetic article compares market structure proposals covering exchange registration, broker conflicts, custody, and disclosure expectations.
+          url: https://example.org/risklens-demo/fintech-web3/market-structure-reform
+        - title: Synthetic company disclosure describes wallet fraud monitoring upgrade
+          source: Synthetic Company Disclosure
+          source_type: company
+          evidence_level: primary
+          summary: A synthetic disclosure describes new transaction monitoring, phishing detection, and customer reimbursement governance for wallet services.
+          url: https://example.org/risklens-demo/fintech-web3/wallet-fraud-monitoring
+        - title: Synthetic industry media reports reputational pressure after stablecoin depeg drill
+          source: Synthetic Industry Media
+          source_type: media
+          evidence_level: secondary
+          summary: A synthetic report describes customer trust concerns after a simulated depeg event exposes communication and redemption workflow gaps.
+          url: https://example.org/risklens-demo/fintech-web3/stablecoin-depeg-drill
+      market_fetcher_tool:
+        - title: Synthetic market data adapter flags liquidity concentration in stablecoin reserves
+          source: Synthetic Market Data Adapter
+          source_type: market
+          evidence_level: secondary
+          summary: A synthetic market signal shows reserve liquidity concentrated in a narrow set of instruments, increasing redemption stress sensitivity.
+          url: https://example.org/risklens-demo/fintech-web3/reserve-liquidity-concentration
+        - title: Synthetic central bank note reviews tokenized settlement operational risk
+          source: Synthetic Central Bank
+          source_type: official
+          evidence_level: primary
+          summary: A synthetic central bank note examines settlement finality, cyber resilience, and governance requirements for tokenized payment networks.
+          url: https://example.org/risklens-demo/fintech-web3/tokenized-settlement-risk
+        - title: Synthetic market adapter monitors exchange outage and volume displacement
+          source: Synthetic Market Data Adapter
+          source_type: market
+          evidence_level: secondary
+          summary: A synthetic data adapter observes temporary exchange outages causing liquidity fragmentation and elevated customer support complaints.
+          url: https://example.org/risklens-demo/fintech-web3/exchange-outage-volume-displacement
+
+  ai_technology_strategy:
+    display_name: AI Technology Strategy
+    required_topics:
+      - model_providers
+      - ai_agents
+      - enterprise_ai
+      - ai_infrastructure
+      - model_governance
+      - ai_safety
+      - technology_risk
+    preferred_source_types:
+      - company
+      - academic
+      - official
+      - high_quality_media
+    required_tools:
+      - rss_fetcher_tool
+      - arxiv_fetcher_tool
+      - market_fetcher_tool
+    queries:
+      arxiv:
+        - enterprise AI agents model evaluation
+        - AI infrastructure platform dependency model risk
+      rss:
+        - enterprise AI governance platform dependency
+    feeds:
+      regulatory:
+        - source: NIST
+          url: https://www.nist.gov/news-events/news/rss.xml
+      rss:
+        - source: NIST
+          url: https://www.nist.gov/news-events/news/rss.xml
+    synthetic_items:
+      rss_fetcher_tool:
+        - title: Synthetic company disclosure launches enterprise agent permission controls
+          source: Synthetic Company Disclosure
+          source_type: company
+          evidence_level: primary
+          summary: A synthetic provider disclosure introduces role-based agent permissions, audit logs, tool-use policies, and administrator review workflows.
+          url: https://example.org/risklens-demo/ai-strategy/enterprise-agent-permissions
+        - title: Synthetic industry media reports platform dependency concerns in AI stacks
+          source: Synthetic Industry Media
+          source_type: media
+          evidence_level: secondary
+          summary: A synthetic article reports that enterprises are reassessing model provider concentration, API dependency, and fallback architecture.
+          url: https://example.org/risklens-demo/ai-strategy/platform-dependency
+        - title: Synthetic company disclosure expands AI safety evaluation program
+          source: Synthetic Company Disclosure
+          source_type: company
+          evidence_level: primary
+          summary: A synthetic disclosure describes red-team testing, eval suites, policy enforcement, and incident escalation for enterprise model releases.
+          url: https://example.org/risklens-demo/ai-strategy/safety-evaluation-program
+      arxiv_fetcher_tool:
+        - title: Synthetic academic study compares tool-use reliability in enterprise agents
+          source: Synthetic Academic Source
+          source_type: academic
+          evidence_level: secondary
+          summary: A synthetic paper evaluates multi-step agent failures, permission leakage, tool-call validation, and monitoring requirements.
+          url: https://example.org/risklens-demo/ai-strategy/academic-agent-reliability
+        - title: Synthetic academic source benchmarks model evaluation drift in production
+          source: Synthetic Academic Source
+          source_type: academic
+          evidence_level: secondary
+          summary: A synthetic study finds that offline model evaluations degrade when production workflows introduce new data, tools, and user intents.
+          url: https://example.org/risklens-demo/ai-strategy/model-evaluation-drift
+      market_fetcher_tool:
+        - title: Synthetic market data adapter flags AI infrastructure cost volatility
+          source: Synthetic Market Data Adapter
+          source_type: market
+          evidence_level: secondary
+          summary: A synthetic infrastructure signal shows GPU rental price volatility and capacity constraints affecting enterprise AI deployment budgets.
+          url: https://example.org/risklens-demo/ai-strategy/infrastructure-cost-volatility
+        - title: Synthetic central bank technology note reviews AI operational dependency risk
+          source: Synthetic Central Bank
+          source_type: official
+          evidence_level: primary
+          summary: A synthetic official note highlights third-party technology dependency, resilience testing, and governance expectations for AI-enabled operations.
+          url: https://example.org/risklens-demo/ai-strategy/official-ai-dependency-risk
+        - title: Synthetic industry media tracks shift from AI pilots to governed deployment
+          source: Synthetic Industry Media
+          source_type: media
+          evidence_level: secondary
+          summary: A synthetic report describes enterprises adding model inventories, approval workflows, cost controls, and safety checks before scaling AI agents.
+          url: https://example.org/risklens-demo/ai-strategy/governed-ai-deployment

@@ -1,0 +1,23 @@
+risk_tags:
+  market_risk:
+    terms: ["market", "liquidity", "volatility", "pricing", "funding", "reserve", "redemption", "market depth", "depeg", "stress"]
+  regulatory_risk:
+    terms: ["regulation", "policy", "supervision", "compliance", "enforcement", "consultation", "supervisory", "disclosure", "attestation", "regulator"]
+  technology_risk:
+    terms: ["infrastructure", "architecture", "outage", "dependency", "platform", "compute", "cloud", "tool-use", "api"]
+  operational_risk:
+    terms: ["operations", "operational", "resilience", "process", "controls", "third-party", "incident", "fallback", "sla", "vendor"]
+  model_risk:
+    terms: ["model", "validation", "hallucination", "governance", "explainability", "evaluation", "drift", "challenger", "copilot"]
+  cybersecurity_risk:
+    terms: ["cyber", "cybersecurity", "breach", "security", "fraud", "attack", "phishing", "custody", "wallet", "access control"]
+  reputational_risk:
+    terms: ["trust", "customer", "brand", "misconduct", "reputation", "complaints", "media pressure", "customer support"]
+  liquidity_risk:
+    terms: ["liquidity", "reserve", "redemption", "funding", "depeg", "market depth", "stress"]
+  third_party_risk:
+    terms: ["third-party", "vendor", "supplier", "outsourcing", "sla", "concentration"]
+  ai_governance_risk:
+    terms: ["ai governance", "permission", "audit log", "policy enforcement", "guardrail", "approval workflow", "model inventory"]
+  opportunity_signal:
+    terms: ["adoption", "efficiency", "growth", "innovation", "productivity", "modernization", "deployment"]

@@ -1,0 +1,26 @@
+sources:
+  - name: Federal Reserve
+    source_type: regulatory
+    evidence_level: primary
+    authority_score: 0.95
+    url: https://www.federalreserve.gov/newsevents/pressreleases.htm
+  - name: SEC
+    source_type: regulatory
+    evidence_level: primary
+    authority_score: 0.95
+    url: https://www.sec.gov/news/pressreleases
+  - name: BIS
+    source_type: official
+    evidence_level: primary
+    authority_score: 0.92
+    url: https://www.bis.org/list/press_releases/index.htm
+  - name: arXiv
+    source_type: academic
+    evidence_level: secondary
+    authority_score: 0.82
+    url: https://arxiv.org
+  - name: Industry Media
+    source_type: media
+    evidence_level: secondary
+    authority_score: 0.68
+    url: https://example.com

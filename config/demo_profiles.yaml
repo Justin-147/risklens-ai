@@ -1,0 +1,44 @@
+financial_services:
+  name: Financial Services
+  keywords:
+    - artificial intelligence
+    - banking
+    - wealth management
+    - regtech
+    - digital transformation
+    - regulation
+  domains:
+    - banking
+    - wealth_management
+    - regtech
+    - digital_transformation
+
+fintech_web3_risk:
+  name: FinTech and Web3 Risk
+  keywords:
+    - crypto
+    - stablecoin
+    - web3
+    - cybersecurity
+    - liquidity
+    - regulation
+  domains:
+    - fintech
+    - web3
+    - market_structure
+    - cyber_resilience
+
+ai_technology_strategy:
+  name: AI Technology Strategy
+  keywords:
+    - ai agents
+    - model providers
+    - enterprise AI
+    - infrastructure
+    - governance
+    - model risk
+  domains:
+    - enterprise_ai
+    - ai_infrastructure
+    - model_governance
+    - automation
