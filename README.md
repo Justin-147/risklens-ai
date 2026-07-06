@@ -1,8 +1,10 @@
 # RiskLens AI: Risk-Aware Market & Technology Intelligence Agent
 
+![tests](https://github.com/justin-147/risklens-ai/actions/workflows/tests.yml/badge.svg)
+
 RiskLens AI is a controlled, tool-using intelligence agent for financial services, FinTech/Web3 risk, and AI technology strategy use cases.
 
-It combines a deterministic risk intelligence pipeline with an auditable agentic orchestration layer. The deterministic pipeline handles multi-source ingestion, normalization, deduplication, source reliability scoring, topic classification, risk tagging, ranking, and report generation. The agentic orchestration layer adds profile-specific planning, tool selection, coverage evaluation, retry logic, lightweight memory, and execution traces.
+It combines a deterministic risk intelligence pipeline with an auditable agentic orchestration layer. The pipeline handles ingestion, normalization, deduplication, source reliability scoring, topic classification, risk tagging, evidence quality scoring, severity/urgency classification, ranking, and report generation. The agentic layer adds profile-specific planning, tool selection, coverage evaluation, retry logic, lightweight memory, verification, and execution traces.
 
 RiskLens AI does not provide investment advice, trading recommendations, or autonomous financial decisions. It is designed for public-source intelligence analysis, risk monitoring, and executive briefing generation.
 
@@ -60,6 +62,13 @@ pytest
 
 All tests should pass; the current demo version typically shows `32 passed`.
 
+## Local Demo Script
+
+After installing the project, you can run the core local demo workflow:
+
+```powershell
+.\scripts\run_demo.ps1
+```
 ## Pipeline Commands
 
 Run a deterministic pipeline report with mock data:

@@ -1,8 +1,10 @@
 ﻿# RiskLens AI：风险感知型市场与技术情报智能体
 
-RiskLens AI 是一个受控的、可调用工具的情报智能体，面向金融服务、FinTech/Web3 风险和 AI 技术战略等场景。
+![tests](https://github.com/justin-147/risklens-ai/actions/workflows/tests.yml/badge.svg)
 
-它将确定性的风险情报流水线与可审计的 agentic 编排层结合起来。确定性流水线负责多源采集、归一化、去重、来源可靠性评分、主题分类、风险标签、排序和报告生成。agentic 编排层负责 profile-specific planning、工具选择、覆盖率评估、有限重试、轻量记忆和 execution trace。
+RiskLens AI 是一个受控、可调用工具的情报智能体，面向金融服务、FinTech/Web3 风险和 AI 技术战略等场景。
+
+它将确定性风险情报流水线与可审计的 agentic 编排层结合起来。流水线负责采集、标准化、去重、来源可靠性评分、主题分类、风险标签、证据质量评分、严重性/紧迫性分类、排序和报告生成。agentic 编排层负责 profile-specific planning、工具选择、覆盖率评估、重试逻辑、轻量记忆、验证和 execution trace。
 
 RiskLens AI 不提供投资建议、交易建议或自主金融决策。它用于公开来源情报分析、风险监控和管理层简报生成。
 
@@ -60,6 +62,13 @@ pytest
 
 所有测试应通过；当前 demo 版本通常显示 `32 passed`。
 
+## 本地演示脚本
+
+安装项目后，可以运行核心本地演示流程：
+
+```powershell
+.\scripts\run_demo.ps1
+```
 ## Pipeline 命令
 
 使用 mock 数据运行确定性 pipeline：
