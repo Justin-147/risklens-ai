@@ -230,10 +230,15 @@ python -m risklens.main agent-run --profile financial_services --mock --max-iter
 
 ## 截图
 
-后续可以补充截图，用于展示：
-- Dashboard Briefing 页面；
-- Agent Run Trace 页面；
-- 包含来源类型、证据等级、严重性、紧迫性和置信度的 HTML 简报。
+### Dashboard Briefing 页面
+
+![Dashboard Briefing](docs/screenshots/dashboard_briefing.png)
+
+### Agent Run Trace 页面
+
+![Agent Run Trace](docs/screenshots/agent_run_trace.png)
+
+Agent Run Trace 截图展示的是一次成功运行。用于展示 coverage gap detection 和 retry behavior 的样例 trace 保存在 `examples/sample_traces/financial_services_gap_trace.json`。
 ## 为什么这些方向重要
 
 - 金融服务：将 AI 供应商、模型治理、运营韧性和监管监督信号转化为结构化监控输出。

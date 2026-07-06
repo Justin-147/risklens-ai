@@ -22,8 +22,8 @@ with tab_report:
     profiles = ["financial_services", "fintech_web3_risk", "ai_technology_strategy"]
     profile = st.sidebar.selectbox("Profile", profiles)
     mode = st.sidebar.selectbox("Mode", ["All", "Pipeline", "Agent"])
-    language = st.sidebar.radio("Language", ["English", "中文"], horizontal=True)
-    language_suffix = "zh" if language == "中文" else "en"
+    language = st.sidebar.radio("Language", ["English", "涓枃"], horizontal=True)
+    language_suffix = "zh" if language == "涓枃" else "en"
 
     files = processed_files_for_profile(PROCESSED, profile, mode=mode)
     if not files:
@@ -43,7 +43,7 @@ with tab_report:
             chart_col2.bar_chart(df["severity"].value_counts())
 
         display_columns = [column for column in ["title", "source", "source_type", "evidence_level", "evidence_quality_score", "severity", "urgency", "final_score", "risk_tags", "url"] if column in df.columns]
-        st.dataframe(df[display_columns], use_container_width=True, hide_index=True)
+        st.dataframe(df[display_columns], width="stretch", hide_index=True)
 
         report_file = report_path_for_processed(REPORTS, selected, language_suffix)
         if report_file.exists():
@@ -69,7 +69,7 @@ with tab_trace:
             st.subheader("Coverage History")
             history_df = pd.DataFrame(history)
             st.line_chart(history_df.set_index("iteration")["coverage_score"])
-            st.dataframe(history_df, use_container_width=True, hide_index=True)
+            st.dataframe(history_df, width="stretch", hide_index=True)
 
         plan = trace.get("plan") or {}
         st.subheader("Plan")
@@ -77,7 +77,7 @@ with tab_trace:
         st.write("Required tools", plan.get("required_tools", []))
 
         st.subheader("Tools Called")
-        st.dataframe(pd.DataFrame(trace.get("tools_called", [])), use_container_width=True, hide_index=True)
+        st.dataframe(pd.DataFrame(trace.get("tools_called", [])), width="stretch", hide_index=True)
 
         st.subheader("Unresolved Gaps")
         st.write(trace.get("gaps", []))

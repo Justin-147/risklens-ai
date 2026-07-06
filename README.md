@@ -237,10 +237,15 @@ The generated trace includes `coverage_history` and `retry_decisions` so the ret
 
 ## Screenshots
 
-Screenshots can be added later to demonstrate:
-- the Dashboard Briefing tab;
-- the Agent Run Trace tab;
-- generated HTML briefings with source type, evidence level, severity, urgency, and confidence.
+### Dashboard Briefing View
+
+![Dashboard Briefing](docs/screenshots/dashboard_briefing.png)
+
+### Agent Run Trace View
+
+![Agent Run Trace](docs/screenshots/agent_run_trace.png)
+
+The Agent Run Trace screenshot shows a successful run. A separate curated gap/retry trace is available under `examples/sample_traces/financial_services_gap_trace.json` to demonstrate coverage gap detection and retry behavior.
 ## Why This Matters
 
 - Financial services: converts AI vendor, model governance, operational resilience, and regulatory supervision signals into structured monitoring outputs.
