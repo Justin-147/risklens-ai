@@ -1,7 +1,11 @@
-# RiskLens AI: Risk-Aware Market & Technology Intelligence Agent
+﻿# RiskLens AI: Risk-Aware Market & Technology Intelligence Agent
 
-![tests](https://github.com/justin-147/risklens-ai/actions/workflows/tests.yml/badge.svg)
-
+[![tests](https://github.com/Justin-147/risklens-ai/actions/workflows/tests.yml/badge.svg)](https://github.com/Justin-147/risklens-ai/actions/workflows/tests.yml)
+[![Release](https://img.shields.io/github/v/release/Justin-147/risklens-ai?label=release)](https://github.com/Justin-147/risklens-ai/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
+[![Dashboard](https://img.shields.io/badge/dashboard-Streamlit-ff4b4b.svg)](README.md#run-the-dashboard)
+[![Status](https://img.shields.io/badge/status-v0.2.0-green.svg)](CHANGELOG.md)
 Current version: **V0.2.0**
 
 RiskLens AI is a controlled, tool-using intelligence agent for public-source risk intelligence across financial services, FinTech/Web3 risk, and AI technology strategy.
@@ -248,3 +252,11 @@ python -m pip install -e ".[dev]"
 ```
 
 If the dashboard shows no data, generate a report first with one of the `--mock` commands above.
+
+## Release Status
+
+Current release: `v0.2.0`.
+
+RiskLens AI v0.2.0 is a controlled, auditable, public-source risk intelligence prototype. It supports deterministic pipeline mode, controlled agent mode, profile-specific planning, bounded retries, coverage evaluation, evidence verification, execution traces, English/Chinese reports, and a Streamlit dashboard.
+
+This project is informational. It is not investment advice, trading advice, legal advice, compliance advice, financial advice, a real-money trading system, or a fully autonomous agent.
