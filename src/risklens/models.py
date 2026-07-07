@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
-from enum import Enum
+from enum import StrEnum
 from typing import Any
 
 from pydantic import BaseModel, Field, HttpUrl
 
 
-class SourceType(str, Enum):
+class SourceType(StrEnum):
     official = "official"
     regulatory = "regulatory"
     academic = "academic"
@@ -17,7 +17,7 @@ class SourceType(str, Enum):
     other = "other"
 
 
-class EvidenceLevel(str, Enum):
+class EvidenceLevel(StrEnum):
     primary = "primary"
     secondary = "secondary"
     unverified = "unverified"
