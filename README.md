@@ -2,24 +2,25 @@
 
 ![tests](https://github.com/justin-147/risklens-ai/actions/workflows/tests.yml/badge.svg)
 
-RiskLens AI is a controlled, tool-using intelligence agent for financial services, FinTech/Web3 risk, and AI technology strategy use cases.
+Current version: **V0.2.0**
 
-It combines a deterministic risk intelligence pipeline with an auditable agentic orchestration layer. The pipeline handles ingestion, normalization, deduplication, source reliability scoring, topic classification, risk tagging, evidence quality scoring, severity/urgency classification, ranking, and report generation. The agentic layer adds profile-specific planning, tool selection, coverage evaluation, retry logic, lightweight memory, verification, and execution traces.
+RiskLens AI is a controlled, tool-using intelligence agent for public-source risk intelligence across financial services, FinTech/Web3 risk, and AI technology strategy.
 
-RiskLens AI does not provide investment advice, trading recommendations, or autonomous financial decisions. It is designed for public-source intelligence analysis, risk monitoring, and executive briefing generation.
+It combines a deterministic risk intelligence pipeline with an auditable orchestration layer. The pipeline handles ingestion, normalization, deduplication, source reliability scoring, topic classification, risk tagging, evidence quality scoring, severity and urgency classification, ranking, and report generation. The agent layer adds profile-specific planning, tool selection, coverage evaluation, bounded retry behavior, lightweight memory, verification, and execution traces.
+
+RiskLens AI is not investment advice. Not trading advice. Not legal, compliance, or financial advice.
 
 ## Coverage Areas
 
-- Financial services and digital transformation
-- FinTech, Web3, and risk data analysis
-- AI application automation
-- Data analytics and business intelligence
-- Risk monitoring and RegTech
+- Financial services, banking AI, wealth management, RegTech, and digital transformation
+- FinTech, Web3, stablecoins, market structure, cybersecurity, liquidity, and reputation risk
+- AI technology strategy, enterprise AI agents, model governance, AI safety, and infrastructure risk
+- Public-source intelligence analysis, risk monitoring, and executive briefing generation
 
 ## Pipeline Mode vs Agent Mode
 
 - `run`: deterministic pipeline mode. It collects or loads items, runs the risk intelligence pipeline, and generates English and Chinese reports.
-- `agent-run`: controlled agentic orchestration mode. It creates a profile-specific plan, selects tools, evaluates coverage gaps, retries within a fixed iteration limit, verifies evidence, saves reports, writes memory, and creates an execution trace.
+- `agent-run`: controlled agent mode. It creates a profile-specific plan, selects tools, evaluates coverage gaps, retries within a fixed iteration limit, verifies evidence, writes memory, saves reports, and creates an execution trace.
 
 ## Architecture
 
@@ -37,7 +38,7 @@ flowchart TD
     D3 --> E
     D4 --> E
     D5 --> E
-    E --> F[Pipeline: Normalize / Deduplicate / Score / Classify / Tag / Rank]
+    E --> F[Normalize / Deduplicate / Score / Classify / Tag / Rank]
     F --> G[Coverage Evaluator]
     G -->|Gaps remain| C
     G -->|Enough evidence| H[Verifier]
@@ -49,191 +50,116 @@ flowchart TD
 
 ## Quick Start on Windows
 
-Open PowerShell, then run the commands below from the folder that contains `RiskLens_AI`.
+Open PowerShell from the folder that contains `RiskLens_AI`.
 
 ```powershell
 cd D:\CodexWork\RiskLens_AI
 python -m venv .venv
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .venv\Scripts\activate
-pip install -e .
-pytest
+python -m pip install -e ".[dev]"
+python -m risklens.main validate
+python -m risklens.main agent-run --profile financial_services --mock --as-of 2026-07-06 --output-root .tmp/demo
 ```
 
-All tests should pass; the current demo version typically shows `32 passed`.
+The `--as-of` value fixes report dates, filenames, and ranking recency. The `--output-root` value keeps runtime files under a disposable folder such as `.tmp/demo`.
 
-## Local Demo Script
+## Common Commands
 
-After installing the project, you can run the core local demo workflow:
+Run a deterministic mock pipeline:
+
+```powershell
+python -m risklens.main run --profile financial_services --mock --as-of 2026-07-06 --output-root .tmp/demo
+```
+
+Run controlled agent mode:
+
+```powershell
+python -m risklens.main agent-run --profile financial_services --mock --max-iterations 3 --as-of 2026-07-06 --output-root .tmp/demo
+```
+
+Run the gap/retry demo:
+
+```powershell
+python -m risklens.main agent-run --profile financial_services --mock --max-iterations 3 --simulate-gap --as-of 2026-07-06 --output-root .tmp/demo
+```
+
+Refresh curated sample artifacts:
+
+```powershell
+python -m risklens.main agent-run --profile financial_services --mock --max-iterations 3 --simulate-gap --as-of 2026-07-06 --output-root .tmp/sample-refresh --copy-samples
+```
+
+Run the complete local demo workflow:
+
+```powershell
+python scripts/run_demo.py
+```
+
+PowerShell wrapper:
 
 ```powershell
 .\scripts\run_demo.ps1
 ```
-## Pipeline Commands
 
-Run a deterministic pipeline report with mock data:
-
-```powershell
-python -m risklens.main run --profile financial_services --mock
-```
-
-Other profiles:
+## Local Verification
 
 ```powershell
-python -m risklens.main run --profile fintech_web3_risk --mock
-python -m risklens.main run --profile ai_technology_strategy --mock
+ruff check .
+python scripts/verify_line_endings.py
+python -m compileall src tests scripts
+mypy src/risklens
+pytest
+python -m risklens.main validate
+python scripts/run_demo.py
+python -m build
 ```
 
-Non-mock pipeline mode calls fetcher adapters instead of `mock_items()`:
-
-```powershell
-python -m risklens.main run --profile financial_services
-```
-
-## Agent Commands
-
-Run controlled agent mode with deterministic mock tools:
-
-```powershell
-python -m risklens.main agent-run --profile financial_services --mock --max-iterations 3
-```
-
-Run another profile:
-
-```powershell
-python -m risklens.main agent-run --profile ai_technology_strategy --mock
-```
-
-The command prints generated paths and agent status:
-
-```text
-raw: ...\data\raw\YYYY-MM-DD_financial_services_agent.json
-processed: ...\data\processed\YYYY-MM-DD_financial_services_agent.json
-markdown_en: ...\reports\markdown\YYYY-MM-DD_financial_services_agent_en.md
-markdown_zh: ...\reports\markdown\YYYY-MM-DD_financial_services_agent_zh.md
-html_en: ...\reports\html\YYYY-MM-DD_financial_services_agent_en.html
-html_zh: ...\reports\html\YYYY-MM-DD_financial_services_agent_zh.html
-trace: ...\reports\traces\YYYY-MM-DD_financial_services_trace.json
-status: success
-coverage_score: 0.88
-```
+All checks should pass. The exact pytest count may change as validation coverage is added.
 
 ## Outputs
 
-- `reports/markdown/*_en.md`: English Markdown briefing
-- `reports/markdown/*_zh.md`: Chinese Markdown briefing
-- `reports/html/*_en.html`: English HTML briefing
-- `reports/html/*_zh.html`: Chinese HTML briefing
-- `data/raw/*.json`: collected raw candidates
-- `data/processed/*.json`: normalized, scored, tagged, and ranked items
-- `reports/traces/*_trace.json`: auditable agent execution trace
-- `data/memory/memory.json`: lightweight run, source, and item memory
+With `--output-root .tmp/demo`, runtime files are written under:
 
-## Execution Trace Example
+- `.tmp/demo/data/raw/`: collected raw candidates
+- `.tmp/demo/data/processed/`: normalized, scored, tagged, and ranked items
+- `.tmp/demo/data/memory/memory.json`: lightweight run, source, and item memory
+- `.tmp/demo/reports/markdown/`: English and Chinese Markdown briefings
+- `.tmp/demo/reports/html/`: English and Chinese HTML briefings
+- `.tmp/demo/reports/traces/`: auditable agent execution traces
 
-```json
-{
-  "run_id": "agent-2026-07-05-demo1234",
-  "profile": "financial_services",
-  "status": "success",
-  "iteration_count": 2,
-  "coverage_score": 0.969,
-  "coverage_history": [
-    {
-      "iteration": 1,
-      "coverage_score": 0.859,
-      "gaps": [
-        "Missing academic source evidence."
-      ],
-      "tools_called_this_iteration": [
-        "regulatory_fetcher_tool",
-        "rss_fetcher_tool",
-        "market_fetcher_tool",
-        "arxiv_fetcher_tool"
-      ],
-      "retry_reason": "Iteration 1: coverage score 0.86; calling arxiv_fetcher_tool to address gaps: Missing academic source evidence.",
-      "improved": true
-    },
-    {
-      "iteration": 2,
-      "coverage_score": 0.969,
-      "gaps": [],
-      "tools_called_this_iteration": [
-        "arxiv_fetcher_tool"
-      ],
-      "retry_reason": "",
-      "improved": true
-    }
-  ],
-  "retry_decisions": [
-    "Iteration 1: coverage score 0.86; calling arxiv_fetcher_tool to address gaps: Missing academic source evidence."
-  ],
-  "source_mix": {
-    "Synthetic Regulator": 2,
-    "Synthetic Company Disclosure": 2,
-    "Synthetic Academic Source": 2,
-    "Synthetic Central Bank": 1,
-    "Synthetic Market Data Adapter": 1
-  }
-}
+Curated examples are stored under:
+
+- `examples/sample_reports/`
+- `examples/sample_traces/`
+- `examples/sample_outputs/`
+
+Generated runtime folders such as `.tmp/`, `data/processed/`, `data/raw/`, `data/memory/`, `reports/`, `dist/`, and `build/` are intentionally ignored by Git.
+
+## Execution Trace
+
+The trace is an execution trace, not a hidden reasoning trace. It records the plan, tools called, coverage score, per-iteration coverage history, detected gaps, retry decisions, source mix, errors, and output paths.
+
+The curated gap/retry example is:
+
+```text
+examples/sample_traces/financial_services_gap_trace.json
 ```
-
-The trace is an execution trace, not a hidden reasoning trace. It records plans, tools, coverage gaps, retry decisions, source mix, and output paths for auditability.
 
 ## Run the Dashboard
 
-After generating at least one report, start the Streamlit dashboard:
+After generating at least one report:
 
 ```powershell
 streamlit run src\risklens\dashboard\app.py
 ```
 
-Open the local URL printed by Streamlit, usually `http://localhost:8501`. The dashboard includes:
+Open the local URL printed by Streamlit, usually `http://localhost:8501`.
 
-- `Briefing`: processed items, source metadata, scores, severity, urgency, and English/Chinese report switching.
-- Mode selector: `Pipeline`, `Agent`, or `All` processed outputs.
-- `Agent Run Trace`: agent status, coverage score, coverage history, iteration count, plan topics, tools called, unresolved gaps, retry decisions, source mix, and generated report paths.
+Dashboard views:
 
-## Demo Profiles
-
-- `financial_services`: AI in financial services, regulatory and policy signals, banking, wealth management, RegTech, operational resilience, and digital transformation.
-- `fintech_web3_risk`: crypto/Web3 market structure, stablecoins, regulation, operational risk, cybersecurity risk, liquidity risk, and reputational risk.
-- `ai_technology_strategy`: model providers, AI agents, enterprise AI adoption, AI infrastructure, model risk, AI safety, and governance.
-
-## Optional LLM Mode
-
-Mock mode is the default path for local demos and does not need API keys. To use an OpenAI-compatible provider, copy `.env.example` to `.env`, set the provider values, install the optional dependency, and run without `--mock`.
-
-```powershell
-pip install -e .[llm]
-copy .env.example .env
-```
-
-Then edit `.env`:
-
-```text
-OPENAI_API_KEY=your_api_key_here
-OPENAI_BASE_URL=https://api.openai.com/v1
-OPENAI_MODEL=gpt-4.1-mini
-RISKLENS_USE_LLM=true
-```
-
-
-## Mock Data and Demo Behavior
-
-Mock mode uses clearly synthetic, business-realistic public-source-style signals. The synthetic data is designed for local demonstration and testing only. It uses differentiated sources such as Synthetic Regulator, Synthetic Central Bank, Synthetic Company Disclosure, Synthetic Academic Source, Synthetic Industry Media, and Synthetic Market Data Adapter.
-
-Real mode depends on public source availability, RSS feed behavior, network access, and parser compatibility. If some public sources fail or coverage is incomplete, agent mode may return `partial_success` with coverage limitations instead of failing the whole run.
-
-## Simulated Retry Demo
-
-Use `--simulate-gap` to demonstrate the controlled retry loop. The first iteration intentionally omits one evidence type, the evaluator detects the gap, and the orchestrator calls a recommended next tool.
-
-```powershell
-python -m risklens.main agent-run --profile financial_services --mock --max-iterations 3 --simulate-gap
-```
-
-The generated trace includes `coverage_history` and `retry_decisions` so the retry behavior is visible and auditable.
+- `Briefing`: processed items, source metadata, evidence quality, severity, urgency, final score, and English/Chinese report switching.
+- `Agent Run Trace`: agent status, coverage history, plan topics, tools called, unresolved gaps, retry decisions, source mix, and generated report paths.
 
 ## Screenshots
 
@@ -246,18 +172,12 @@ The generated trace includes `coverage_history` and `retry_decisions` so the ret
 ![Agent Run Trace](docs/screenshots/agent_run_trace.png)
 
 The Agent Run Trace screenshot shows a successful run. A separate curated gap/retry trace is available under `examples/sample_traces/financial_services_gap_trace.json` to demonstrate coverage gap detection and retry behavior.
-## Why This Matters
 
-- Financial services: converts AI vendor, model governance, operational resilience, and regulatory supervision signals into structured monitoring outputs.
-- FinTech/Web3 risk: organizes stablecoin reserve, custody, cybersecurity, liquidity, enforcement, and reputational signals without giving trading advice.
-- AI transformation: connects enterprise agent governance, model evaluation, AI infrastructure cost, platform dependency, and AI safety into decision-support briefings.
-## Source Policy
+## Demo Profiles
 
-- Official, regulatory, and company filings receive the highest authority scores.
-- Academic and government data receive high authority scores.
-- High-quality media may support a briefing, but no single source should dominate selected report items.
-- Blogs and social media should be treated as low authority unless corroborated.
-- Paywalled content and private/internal data are out of scope.
+- `financial_services`: banking AI, wealth management, regulatory policy, operational resilience, model risk, and digital transformation.
+- `fintech_web3_risk`: stablecoins, crypto market structure, regulation, cybersecurity, operational risk, liquidity risk, and reputational risk.
+- `ai_technology_strategy`: model providers, AI agents, enterprise AI, AI infrastructure, model governance, AI safety, and technology risk.
 
 ## Scoring Formula
 
@@ -273,17 +193,58 @@ final_score =
 - duplication_penalty
 ```
 
-`severity_score` is derived from the rule-based severity label (`low`, `medium`, `high`).
+Evidence quality is stored on each item. Severity is derived from rule-based severity labels (`low`, `medium`, `high`).
+
+## Boundaries
+
+- Not investment advice.
+- Not trading advice.
+- Not an automated trading tool.
+- Not a fully autonomous agent.
+- Does not process private or internal data.
+- Mock data is synthetic demo data.
+- Real mode depends on public source availability, RSS behavior, network access, and parser compatibility.
+
+If public sources fail or coverage is incomplete, agent mode records the failure in the trace and can return `partial_success` with explicit coverage limitations.
+
+## Optional LLM Mode
+
+Mock mode is deterministic and does not require API keys. To use an OpenAI-compatible provider, copy `.env.example` to `.env`, set provider values, install the optional dependency, and run without `--mock`.
+
+```powershell
+python -m pip install -e ".[llm]"
+copy .env.example .env
+```
+
+Then edit `.env`:
+
+```text
+OPENAI_API_KEY=your_api_key_here
+OPENAI_BASE_URL=https://api.openai.com/v1
+OPENAI_MODEL=gpt-4.1-mini
+RISKLENS_USE_LLM=true
+```
+
+## Project Files
+
+- `LICENSE`: MIT License
+- `CHANGELOG.md`: release history
+- `.gitattributes`: LF line-ending policy
+- `.github/workflows/tests.yml`: CI workflow for tests, linting, validation, CLI smoke runs, and package build
 
 ## Troubleshooting
 
-If `python -m risklens.main ...` cannot find the package, make sure `pip install -e .` was run inside the activated virtual environment.
-
-If PowerShell blocks script activation, run this once for the current shell and activate again:
+If PowerShell blocks virtual environment activation, run:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .venv\Scripts\activate
 ```
 
-If the dashboard opens but shows no data, generate a report first with one of the `--mock` commands above.
+If `python -m risklens.main ...` cannot find the package, run:
+
+```powershell
+python -m pip install -e ".[dev]"
+```
+
+If the dashboard shows no data, generate a report first with one of the `--mock` commands above.

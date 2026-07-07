@@ -7,7 +7,11 @@ SEVERITY_SCORES = {"low": 0.25, "medium": 0.60, "high": 1.0}
 
 
 def assign_evidence_quality_score(item: IntelligenceItem) -> float:
-    if item.evidence_level == EvidenceLevel.primary and item.source_type in {SourceType.official, SourceType.regulatory, SourceType.company}:
+    if item.evidence_level == EvidenceLevel.primary and item.source_type in {
+        SourceType.official,
+        SourceType.regulatory,
+        SourceType.company,
+    }:
         return 0.95
     if item.evidence_level == EvidenceLevel.secondary and item.source_type == SourceType.academic:
         return 0.80
@@ -24,9 +28,24 @@ def assign_evidence_quality_score(item: IntelligenceItem) -> float:
 
 def assign_severity_and_urgency(item: IntelligenceItem) -> tuple[str, str]:
     tags = set(item.risk_tags)
-    primary_or_regulatory = item.evidence_level == EvidenceLevel.primary or item.source_type in {SourceType.regulatory, SourceType.official}
+    primary_or_regulatory = item.evidence_level == EvidenceLevel.primary or item.source_type in {
+        SourceType.regulatory,
+        SourceType.official,
+    }
 
-    if item.source_type == SourceType.regulatory and primary_or_regulatory and tags.intersection({"model_risk", "operational_risk", "regulatory_risk", "third_party_risk", "ai_governance_risk"}):
+    if (
+        item.source_type == SourceType.regulatory
+        and primary_or_regulatory
+        and tags.intersection(
+            {
+                "model_risk",
+                "operational_risk",
+                "regulatory_risk",
+                "third_party_risk",
+                "ai_governance_risk",
+            }
+        )
+    ):
         return "high", "act_now"
     if "cybersecurity_risk" in tags and primary_or_regulatory:
         return "high", "act_now"

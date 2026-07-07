@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections import Counter
 import re
+from collections import Counter
 
 from risklens.agent.state import IntelligencePlan
 from risklens.models import EvidenceLevel, IntelligenceItem, SourceType
@@ -42,7 +42,9 @@ def verify_items(items: list[IntelligenceItem], plan: IntelligencePlan) -> list[
     dominant, count = source_counts.most_common(1)[0]
     share = count / len(items)
     if share > max_allowed:
-        issues.append(f"Single-source dominance: {dominant} accounts for {share:.0%} of selected items.")
+        issues.append(
+            f"Single-source dominance: {dominant} accounts for {share:.0%} of selected items."
+        )
 
     high_confidence = [item for item in items if item.authority_score >= 0.85]
     weak_high_confidence = [
@@ -59,8 +61,15 @@ def verify_items(items: list[IntelligenceItem], plan: IntelligencePlan) -> list[
 
 def verify_report_text(report: str) -> list[str]:
     lowered = report.lower()
-    issues = [f"Report contains prohibited phrase: {phrase}" for phrase in BANNED_REPORT_PHRASES if phrase in lowered]
-    has_source_section = any(re.search(pattern, report, flags=re.IGNORECASE | re.MULTILINE) for pattern in SOURCE_SECTION_PATTERNS)
+    issues = [
+        f"Report contains prohibited phrase: {phrase}"
+        for phrase in BANNED_REPORT_PHRASES
+        if phrase in lowered
+    ]
+    has_source_section = any(
+        re.search(pattern, report, flags=re.IGNORECASE | re.MULTILINE)
+        for pattern in SOURCE_SECTION_PATTERNS
+    )
     if not has_source_section:
         issues.append("Report is missing a source section.")
     return issues

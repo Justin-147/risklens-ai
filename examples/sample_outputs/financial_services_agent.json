@@ -1,0 +1,262 @@
+[
+  {
+    "id": "synthetic-regulatory_fetcher_tool-financial_services-1",
+    "title": "Synthetic regulator updates supervisory expectations for third-party AI vendors",
+    "url": "https://example.org/risklens-demo/financial-services/regulator-ai-vendor-oversight",
+    "source": "Synthetic Regulator",
+    "source_type": "regulatory",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic supervisory bulletin asks banks to document vendor oversight, model validation, audit trails, and incident escalation for AI-enabled customer workflows.",
+    "raw_text": "A synthetic supervisory bulletin asks banks to document vendor oversight, model validation, audit trails, and incident escalation for AI-enabled customer workflows.",
+    "authority_score": 0.95,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 1.0,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8529999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "high",
+    "urgency": "act_now",
+    "risk_tags": [
+      "regulatory_risk",
+      "operational_risk",
+      "model_risk",
+      "reputational_risk",
+      "third_party_risk"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-regulatory_fetcher_tool-financial_services-2",
+    "title": "Synthetic regulator reviews model risk controls in digital lending programs",
+    "url": "https://example.org/risklens-demo/financial-services/model-risk-digital-lending",
+    "source": "Synthetic Regulator",
+    "source_type": "regulatory",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic review identifies gaps in explainability, challenger testing, and board reporting for AI-assisted credit and onboarding tools.",
+    "raw_text": "A synthetic review identifies gaps in explainability, challenger testing, and board reporting for AI-assisted credit and onboarding tools.",
+    "authority_score": 0.95,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.79,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8277999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "high",
+    "urgency": "act_now",
+    "risk_tags": [
+      "regulatory_risk",
+      "operational_risk",
+      "model_risk"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-financial_services-1",
+    "title": "Synthetic company disclosure describes wealth advisor AI assistant controls",
+    "url": "https://example.org/risklens-demo/financial-services/wealth-ai-controls",
+    "source": "Synthetic Company Disclosure",
+    "source_type": "company",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic bank disclosure describes permissioning, human review, customer suitability guardrails, and logging for wealth management AI assistants.",
+    "raw_text": "A synthetic bank disclosure describes permissioning, human review, customer suitability guardrails, and logging for wealth management AI assistants.",
+    "authority_score": 0.85,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8253999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "regulatory_risk",
+      "operational_risk",
+      "reputational_risk",
+      "ai_governance_risk"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-financial_services-3",
+    "title": "Synthetic company disclosure outlines digital transformation risk committee",
+    "url": "https://example.org/risklens-demo/financial-services/transformation-risk-committee",
+    "source": "Synthetic Company Disclosure",
+    "source_type": "company",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic filing describes a cross-functional committee for AI change management, vendor risk, data quality, and customer communication controls.",
+    "raw_text": "A synthetic filing describes a cross-functional committee for AI change management, vendor risk, data quality, and customer communication controls.",
+    "authority_score": 0.85,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8253999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "regulatory_risk",
+      "operational_risk",
+      "reputational_risk",
+      "third_party_risk"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-market_fetcher_tool-financial_services-2",
+    "title": "Synthetic central bank note highlights operational resilience investment",
+    "url": "https://example.org/risklens-demo/financial-services/central-bank-resilience-investment",
+    "source": "Synthetic Central Bank",
+    "source_type": "official",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic central bank note links technology modernization with resilience testing, third-party concentration monitoring, and governance reporting.",
+    "raw_text": "A synthetic central bank note links technology modernization with resilience testing, third-party concentration monitoring, and governance reporting.",
+    "authority_score": 0.95,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8173999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "operational_risk",
+      "model_risk",
+      "third_party_risk",
+      "opportunity_signal"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-arxiv_fetcher_tool-financial_services-1",
+    "title": "Synthetic academic study benchmarks hallucination risk in banking copilots",
+    "url": "https://example.org/risklens-demo/financial-services/academic-banking-copilot-risk",
+    "source": "Synthetic Academic Source",
+    "source_type": "academic",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic research note compares retrieval controls, evaluation datasets, and escalation policies for banking copilots used in regulated workflows.",
+    "raw_text": "A synthetic research note compares retrieval controls, evaluation datasets, and escalation policies for banking copilots used in regulated workflows.",
+    "authority_score": 0.82,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.61,
+    "duplication_penalty": 0.0,
+    "final_score": 0.76,
+    "evidence_quality_score": 0.8,
+    "severity": "medium",
+    "urgency": "watch",
+    "risk_tags": [
+      "operational_risk",
+      "model_risk"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-market_fetcher_tool-financial_services-1",
+    "title": "Synthetic market adapter flags rising spend on bank AI governance tooling",
+    "url": "https://example.org/risklens-demo/financial-services/market-ai-governance-spend",
+    "source": "Synthetic Market Data Adapter",
+    "source_type": "market",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic market signal indicates increasing procurement activity for AI monitoring, policy enforcement, and model inventory platforms.",
+    "raw_text": "A synthetic market signal indicates increasing procurement activity for AI monitoring, policy enforcement, and model inventory platforms.",
+    "authority_score": 0.75,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 1.0,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7430000000000001,
+    "evidence_quality_score": 0.65,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "market_risk",
+      "regulatory_risk",
+      "technology_risk",
+      "model_risk",
+      "ai_governance_risk"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-arxiv_fetcher_tool-financial_services-2",
+    "title": "Synthetic academic source evaluates operational resilience of AI decision support",
+    "url": "https://example.org/risklens-demo/financial-services/academic-ai-resilience",
+    "source": "Synthetic Academic Source",
+    "source_type": "academic",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "Financial Services",
+    "summary": "A synthetic paper studies fallback procedures, monitoring thresholds, and incident response for AI decision support in financial institutions.",
+    "raw_text": "A synthetic paper studies fallback procedures, monitoring thresholds, and incident response for AI decision support in financial institutions.",
+    "authority_score": 0.82,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.43,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7063999999999999,
+    "evidence_quality_score": 0.8,
+    "severity": "medium",
+    "urgency": "watch",
+    "risk_tags": [
+      "operational_risk"
+    ],
+    "affected_domains": [
+      "banking",
+      "wealth_management",
+      "regtech"
+    ],
+    "evidence_level": "secondary"
+  }
+]

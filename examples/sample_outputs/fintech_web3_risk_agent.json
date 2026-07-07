@@ -1,0 +1,262 @@
+[
+  {
+    "id": "synthetic-regulatory_fetcher_tool-fintech_web3_risk-1",
+    "title": "Synthetic regulator proposes stablecoin reserve transparency template",
+    "url": "https://example.org/risklens-demo/fintech-web3/stablecoin-reserve-template",
+    "source": "Synthetic Regulator",
+    "source_type": "regulatory",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic consultation proposes daily reserve attestations, redemption liquidity disclosures, and incident reporting for stablecoin issuers.",
+    "raw_text": "A synthetic consultation proposes daily reserve attestations, redemption liquidity disclosures, and incident reporting for stablecoin issuers.",
+    "authority_score": 0.95,
+    "relevance_score": 0.6699999999999999,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.9133999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "high",
+    "urgency": "act_now",
+    "risk_tags": [
+      "market_risk",
+      "regulatory_risk",
+      "operational_risk",
+      "liquidity_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-regulatory_fetcher_tool-fintech_web3_risk-2",
+    "title": "Synthetic enforcement note highlights custody control failures at crypto intermediary",
+    "url": "https://example.org/risklens-demo/fintech-web3/custody-control-enforcement",
+    "source": "Synthetic Regulator",
+    "source_type": "regulatory",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic enforcement signal cites weak segregation, incomplete cyber monitoring, and delayed customer notifications after a custody incident.",
+    "raw_text": "A synthetic enforcement signal cites weak segregation, incomplete cyber monitoring, and delayed customer notifications after a custody incident.",
+    "authority_score": 0.95,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8813999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "high",
+    "urgency": "act_now",
+    "risk_tags": [
+      "regulatory_risk",
+      "operational_risk",
+      "cybersecurity_risk",
+      "reputational_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-market_fetcher_tool-fintech_web3_risk-2",
+    "title": "Synthetic central bank note reviews tokenized settlement operational risk",
+    "url": "https://example.org/risklens-demo/fintech-web3/tokenized-settlement-risk",
+    "source": "Synthetic Central Bank",
+    "source_type": "official",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic central bank note examines settlement finality, cyber resilience, and governance requirements for tokenized payment networks.",
+    "raw_text": "A synthetic central bank note examines settlement finality, cyber resilience, and governance requirements for tokenized payment networks.",
+    "authority_score": 0.95,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.79,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8277999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "high",
+    "urgency": "act_now",
+    "risk_tags": [
+      "operational_risk",
+      "model_risk",
+      "cybersecurity_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-fintech_web3_risk-2",
+    "title": "Synthetic company disclosure describes wallet fraud monitoring upgrade",
+    "url": "https://example.org/risklens-demo/fintech-web3/wallet-fraud-monitoring",
+    "source": "Synthetic Company Disclosure",
+    "source_type": "company",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic disclosure describes new transaction monitoring, phishing detection, and customer reimbursement governance for wallet services.",
+    "raw_text": "A synthetic disclosure describes new transaction monitoring, phishing detection, and customer reimbursement governance for wallet services.",
+    "authority_score": 0.85,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8253999999999998,
+    "evidence_quality_score": 0.95,
+    "severity": "high",
+    "urgency": "act_now",
+    "risk_tags": [
+      "regulatory_risk",
+      "model_risk",
+      "cybersecurity_risk",
+      "reputational_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-market_fetcher_tool-fintech_web3_risk-1",
+    "title": "Synthetic market data adapter flags liquidity concentration in stablecoin reserves",
+    "url": "https://example.org/risklens-demo/fintech-web3/reserve-liquidity-concentration",
+    "source": "Synthetic Market Data Adapter",
+    "source_type": "market",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic market signal shows reserve liquidity concentrated in a narrow set of instruments, increasing redemption stress sensitivity.",
+    "raw_text": "A synthetic market signal shows reserve liquidity concentrated in a narrow set of instruments, increasing redemption stress sensitivity.",
+    "authority_score": 0.75,
+    "relevance_score": 0.6699999999999999,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.79,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7818,
+    "evidence_quality_score": 0.65,
+    "severity": "medium",
+    "urgency": "watch",
+    "risk_tags": [
+      "market_risk",
+      "liquidity_risk",
+      "third_party_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-market_fetcher_tool-fintech_web3_risk-3",
+    "title": "Synthetic market adapter monitors exchange outage and volume displacement",
+    "url": "https://example.org/risklens-demo/fintech-web3/exchange-outage-volume-displacement",
+    "source": "Synthetic Market Data Adapter",
+    "source_type": "market",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic data adapter observes temporary exchange outages causing liquidity fragmentation and elevated customer support complaints.",
+    "raw_text": "A synthetic data adapter observes temporary exchange outages causing liquidity fragmentation and elevated customer support complaints.",
+    "authority_score": 0.75,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7714000000000001,
+    "evidence_quality_score": 0.65,
+    "severity": "medium",
+    "urgency": "watch",
+    "risk_tags": [
+      "market_risk",
+      "technology_risk",
+      "reputational_risk",
+      "liquidity_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-fintech_web3_risk-1",
+    "title": "Synthetic industry media maps crypto market structure reform proposals",
+    "url": "https://example.org/risklens-demo/fintech-web3/market-structure-reform",
+    "source": "Synthetic Industry Media",
+    "source_type": "media",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic article compares market structure proposals covering exchange registration, broker conflicts, custody, and disclosure expectations.",
+    "raw_text": "A synthetic article compares market structure proposals covering exchange registration, broker conflicts, custody, and disclosure expectations.",
+    "authority_score": 0.68,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.79,
+    "duplication_penalty": 0.0,
+    "final_score": 0.728,
+    "evidence_quality_score": 0.6,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "market_risk",
+      "regulatory_risk",
+      "cybersecurity_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-fintech_web3_risk-3",
+    "title": "Synthetic industry media reports reputational pressure after stablecoin depeg drill",
+    "url": "https://example.org/risklens-demo/fintech-web3/stablecoin-depeg-drill",
+    "source": "Synthetic Industry Media",
+    "source_type": "media",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "FinTech and Web3 Risk",
+    "summary": "A synthetic report describes customer trust concerns after a simulated depeg event exposes communication and redemption workflow gaps.",
+    "raw_text": "A synthetic report describes customer trust concerns after a simulated depeg event exposes communication and redemption workflow gaps.",
+    "authority_score": 0.68,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.79,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7,
+    "evidence_quality_score": 0.6,
+    "severity": "low",
+    "urgency": "watch",
+    "risk_tags": [
+      "market_risk",
+      "reputational_risk",
+      "liquidity_risk"
+    ],
+    "affected_domains": [
+      "fintech",
+      "web3",
+      "market_structure"
+    ],
+    "evidence_level": "secondary"
+  }
+]

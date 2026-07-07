@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import Enum
 from typing import Any
 
@@ -29,7 +29,7 @@ class IntelligenceItem(BaseModel):
     url: HttpUrl | str
     source: str
     source_type: SourceType = SourceType.other
-    published_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    published_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
     topic: str = "general"
     summary: str = ""
     raw_text: str = ""

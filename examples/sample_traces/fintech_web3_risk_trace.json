@@ -1,0 +1,118 @@
+{
+  "run_id": "agent-2026-07-06-751f87de",
+  "profile": "fintech_web3_risk",
+  "status": "success",
+  "started_at": "2026-07-06T00:00:00+00:00",
+  "completed_at": "2026-07-06T00:00:00+00:00",
+  "iteration_count": 1,
+  "plan": {
+    "profile": "fintech_web3_risk",
+    "required_topics": [
+      "stablecoins",
+      "crypto_market_structure",
+      "regulation",
+      "cybersecurity",
+      "operational_risk",
+      "liquidity_risk",
+      "reputational_risk"
+    ],
+    "preferred_source_types": [
+      "regulatory",
+      "official",
+      "market",
+      "high_quality_media",
+      "cybersecurity_source"
+    ],
+    "required_tools": [
+      "regulatory_fetcher_tool",
+      "rss_fetcher_tool",
+      "market_fetcher_tool"
+    ],
+    "min_items": 8,
+    "max_iterations": 3,
+    "source_diversity_constraints": {
+      "max_single_source_share": 0.3
+    }
+  },
+  "tools_called": [
+    {
+      "tool_name": "regulatory_fetcher_tool",
+      "status": "success",
+      "item_count": 2,
+      "errors": [],
+      "metadata": {
+        "item_count": 2,
+        "source_count": 1,
+        "elapsed_seconds": 0.0,
+        "tool_name": "regulatory_fetcher_tool"
+      }
+    },
+    {
+      "tool_name": "rss_fetcher_tool",
+      "status": "success",
+      "item_count": 3,
+      "errors": [],
+      "metadata": {
+        "item_count": 3,
+        "source_count": 2,
+        "elapsed_seconds": 0.0,
+        "tool_name": "rss_fetcher_tool"
+      }
+    },
+    {
+      "tool_name": "market_fetcher_tool",
+      "status": "success",
+      "item_count": 3,
+      "errors": [],
+      "metadata": {
+        "item_count": 3,
+        "source_count": 2,
+        "elapsed_seconds": 0.0,
+        "tool_name": "market_fetcher_tool"
+      }
+    }
+  ],
+  "coverage_score": 0.938,
+  "coverage_history": [
+    {
+      "iteration": 1,
+      "coverage_score": 0.938,
+      "gaps": [],
+      "tools_called_this_iteration": [
+        "regulatory_fetcher_tool",
+        "rss_fetcher_tool",
+        "market_fetcher_tool"
+      ],
+      "retry_reason": "",
+      "improved": true
+    }
+  ],
+  "gaps": [],
+  "retry_decisions": [],
+  "errors": [],
+  "final_report_paths": {
+    "processed": "examples/sample_outputs/fintech_web3_risk_agent.json",
+    "markdown_en": "examples/sample_reports/fintech_web3_risk_agent_en.md",
+    "markdown_zh": "examples/sample_reports/fintech_web3_risk_agent_zh.md",
+    "trace": "examples/sample_traces/fintech_web3_risk_trace.json"
+  },
+  "source_mix": {
+    "Synthetic Regulator": 2,
+    "Synthetic Central Bank": 1,
+    "Synthetic Company Disclosure": 1,
+    "Synthetic Market Data Adapter": 2,
+    "Synthetic Industry Media": 2
+  },
+  "topic_coverage": {
+    "missing_topics": [],
+    "required_topics": [
+      "stablecoins",
+      "crypto_market_structure",
+      "regulation",
+      "cybersecurity",
+      "operational_risk",
+      "liquidity_risk",
+      "reputational_risk"
+    ]
+  }
+}

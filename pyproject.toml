@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "risklens-ai"
-version = "0.1.0"
+version = "0.2.0"
 description = "Risk-aware market and technology intelligence agent."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -23,7 +23,12 @@ dependencies = [
 
 [project.optional-dependencies]
 llm = ["openai>=1.40"]
-dev = ["pytest>=7.4"]
+dev = [
+  "pytest>=7.4",
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "build>=1.2",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -31,3 +36,22 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_configs = true
+strict = false

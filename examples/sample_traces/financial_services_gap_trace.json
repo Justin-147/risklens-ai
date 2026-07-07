@@ -1,173 +1,160 @@
-﻿{
-    "run_id":  "agent-2026-07-05-e494d8cc",
-    "profile":  "financial_services",
-    "status":  "partial_success",
-    "started_at":  "2026-07-05T01:43:59.643024+00:00",
-    "completed_at":  "2026-07-05T01:43:59.813536+00:00",
-    "iteration_count":  2,
-    "plan":  {
-                 "profile":  "financial_services",
-                 "required_topics":  [
-                                         "banking_ai",
-                                         "wealth_management",
-                                         "regulatory_policy",
-                                         "operational_resilience",
-                                         "model_risk",
-                                         "digital_transformation"
-                                     ],
-                 "preferred_source_types":  [
-                                                "regulatory",
-                                                "official",
-                                                "company",
-                                                "academic",
-                                                "high_quality_media"
-                                            ],
-                 "required_tools":  [
-                                        "regulatory_fetcher_tool",
-                                        "rss_fetcher_tool",
-                                        "market_fetcher_tool",
-                                        "arxiv_fetcher_tool"
-                                    ],
-                 "min_items":  8,
-                 "max_iterations":  3,
-                 "source_diversity_constraints":  {
-                                                      "max_single_source_share":  0.3
-                                                  }
-             },
-    "tools_called":  [
-                         {
-                             "tool_name":  "regulatory_fetcher_tool",
-                             "status":  "success",
-                             "item_count":  2,
-                             "errors":  [
-
-                                        ],
-                             "metadata":  {
-                                              "item_count":  2,
-                                              "source_count":  1,
-                                              "elapsed_seconds":  0.0,
-                                              "tool_name":  "regulatory_fetcher_tool"
-                                          }
-                         },
-                         {
-                             "tool_name":  "rss_fetcher_tool",
-                             "status":  "success",
-                             "item_count":  3,
-                             "errors":  [
-
-                                        ],
-                             "metadata":  {
-                                              "item_count":  3,
-                                              "source_count":  2,
-                                              "elapsed_seconds":  0.0,
-                                              "tool_name":  "rss_fetcher_tool"
-                                          }
-                         },
-                         {
-                             "tool_name":  "market_fetcher_tool",
-                             "status":  "success",
-                             "item_count":  2,
-                             "errors":  [
-
-                                        ],
-                             "metadata":  {
-                                              "item_count":  2,
-                                              "source_count":  2,
-                                              "elapsed_seconds":  0.0,
-                                              "tool_name":  "market_fetcher_tool"
-                                          }
-                         },
-                         {
-                             "tool_name":  "arxiv_fetcher_tool",
-                             "status":  "partial_success",
-                             "item_count":  0,
-                             "errors":  [
-                                            "Tool returned no items."
-                                        ],
-                             "metadata":  {
-                                              "item_count":  0,
-                                              "source_count":  0,
-                                              "elapsed_seconds":  0.0,
-                                              "tool_name":  "arxiv_fetcher_tool"
-                                          }
-                         },
-                         {
-                             "tool_name":  "arxiv_fetcher_tool",
-                             "status":  "success",
-                             "item_count":  2,
-                             "errors":  [
-
-                                        ],
-                             "metadata":  {
-                                              "item_count":  2,
-                                              "source_count":  1,
-                                              "elapsed_seconds":  0.0,
-                                              "tool_name":  "arxiv_fetcher_tool"
-                                          }
-                         }
-                     ],
-    "coverage_score":  0.969,
-    "coverage_history":  [
-                             {
-                                 "iteration":  1,
-                                 "coverage_score":  0.859,
-                                 "gaps":  [
-                                              "Missing academic source evidence."
-                                          ],
-                                 "tools_called_this_iteration":  [
-                                                                     "regulatory_fetcher_tool",
-                                                                     "rss_fetcher_tool",
-                                                                     "market_fetcher_tool",
-                                                                     "arxiv_fetcher_tool"
-                                                                 ],
-                                 "retry_reason":  "Iteration 1: coverage score 0.86; calling arxiv_fetcher_tool to address gaps: Missing academic source evidence.",
-                                 "improved":  true
-                             },
-                             {
-                                 "iteration":  2,
-                                 "coverage_score":  0.969,
-                                 "gaps":  [
-
-                                          ],
-                                 "tools_called_this_iteration":  [
-                                                                     "arxiv_fetcher_tool"
-                                                                 ],
-                                 "retry_reason":  "",
-                                 "improved":  true
-                             }
-                         ],
-    "gaps":  [
-
-             ],
-    "retry_decisions":  [
-                            "Iteration 1: coverage score 0.86; calling arxiv_fetcher_tool to address gaps: Missing academic source evidence."
-                        ],
-    "final_report_paths":  {
-                               "raw":  "data/raw/2026-07-05_financial_services_agent_gap.json",
-                               "processed":  "data/processed/2026-07-05_financial_services_agent_gap.json",
-                               "markdown_en":  "reports/markdown/2026-07-05_financial_services_agent_gap_en.md",
-                               "markdown_zh":  "reports/markdown/2026-07-05_financial_services_agent_gap_zh.md",
-                               "html_en":  "reports/html/2026-07-05_financial_services_agent_gap_en.html",
-                               "html_zh":  "reports/html/2026-07-05_financial_services_agent_gap_zh.html"
-                           },
-    "source_mix":  {
-                       "Synthetic Regulator":  2,
-                       "Synthetic Company Disclosure":  2,
-                       "Synthetic Central Bank":  1,
-                       "Synthetic Academic Source":  2,
-                       "Synthetic Market Data Adapter":  1
-                   },
-    "topic_coverage":  {
-                           "missing_topics":  [
-
-                                              ],
-                           "required_topics":  [
-                                                   "banking_ai",
-                                                   "wealth_management",
-                                                   "regulatory_policy",
-                                                   "operational_resilience",
-                                                   "model_risk",
-                                                   "digital_transformation"
-                                               ]
-                       }
+{
+  "run_id": "agent-2026-07-06-add42965",
+  "profile": "financial_services",
+  "status": "partial_success",
+  "started_at": "2026-07-06T00:00:00+00:00",
+  "completed_at": "2026-07-06T00:00:00+00:00",
+  "iteration_count": 2,
+  "plan": {
+    "profile": "financial_services",
+    "required_topics": [
+      "banking_ai",
+      "wealth_management",
+      "regulatory_policy",
+      "operational_resilience",
+      "model_risk",
+      "digital_transformation"
+    ],
+    "preferred_source_types": [
+      "regulatory",
+      "official",
+      "company",
+      "academic",
+      "high_quality_media"
+    ],
+    "required_tools": [
+      "regulatory_fetcher_tool",
+      "rss_fetcher_tool",
+      "market_fetcher_tool",
+      "arxiv_fetcher_tool"
+    ],
+    "min_items": 8,
+    "max_iterations": 3,
+    "source_diversity_constraints": {
+      "max_single_source_share": 0.3
+    }
+  },
+  "tools_called": [
+    {
+      "tool_name": "regulatory_fetcher_tool",
+      "status": "success",
+      "item_count": 2,
+      "errors": [],
+      "metadata": {
+        "item_count": 2,
+        "source_count": 1,
+        "elapsed_seconds": 0.0,
+        "tool_name": "regulatory_fetcher_tool"
+      }
+    },
+    {
+      "tool_name": "rss_fetcher_tool",
+      "status": "success",
+      "item_count": 3,
+      "errors": [],
+      "metadata": {
+        "item_count": 3,
+        "source_count": 2,
+        "elapsed_seconds": 0.0,
+        "tool_name": "rss_fetcher_tool"
+      }
+    },
+    {
+      "tool_name": "market_fetcher_tool",
+      "status": "success",
+      "item_count": 2,
+      "errors": [],
+      "metadata": {
+        "item_count": 2,
+        "source_count": 2,
+        "elapsed_seconds": 0.0,
+        "tool_name": "market_fetcher_tool"
+      }
+    },
+    {
+      "tool_name": "arxiv_fetcher_tool",
+      "status": "partial_success",
+      "item_count": 0,
+      "errors": [
+        "Tool returned no items."
+      ],
+      "metadata": {
+        "item_count": 0,
+        "source_count": 0,
+        "elapsed_seconds": 0.0,
+        "tool_name": "arxiv_fetcher_tool"
+      }
+    },
+    {
+      "tool_name": "arxiv_fetcher_tool",
+      "status": "success",
+      "item_count": 2,
+      "errors": [],
+      "metadata": {
+        "item_count": 2,
+        "source_count": 1,
+        "elapsed_seconds": 0.0,
+        "tool_name": "arxiv_fetcher_tool"
+      }
+    }
+  ],
+  "coverage_score": 0.969,
+  "coverage_history": [
+    {
+      "iteration": 1,
+      "coverage_score": 0.859,
+      "gaps": [
+        "Missing academic source evidence."
+      ],
+      "tools_called_this_iteration": [
+        "regulatory_fetcher_tool",
+        "rss_fetcher_tool",
+        "market_fetcher_tool",
+        "arxiv_fetcher_tool"
+      ],
+      "retry_reason": "Iteration 1: coverage score 0.86; calling arxiv_fetcher_tool to address gaps: Missing academic source evidence.",
+      "improved": true
+    },
+    {
+      "iteration": 2,
+      "coverage_score": 0.969,
+      "gaps": [],
+      "tools_called_this_iteration": [
+        "arxiv_fetcher_tool"
+      ],
+      "retry_reason": "",
+      "improved": true
+    }
+  ],
+  "gaps": [],
+  "retry_decisions": [
+    "Iteration 1: coverage score 0.86; calling arxiv_fetcher_tool to address gaps: Missing academic source evidence."
+  ],
+  "errors": [
+    "arxiv_fetcher_tool: Tool returned no items."
+  ],
+  "final_report_paths": {
+    "processed": "examples/sample_outputs/financial_services_agent.json",
+    "markdown_en": "examples/sample_reports/financial_services_agent_en.md",
+    "markdown_zh": "examples/sample_reports/financial_services_agent_zh.md",
+    "trace": "examples/sample_traces/financial_services_gap_trace.json"
+  },
+  "source_mix": {
+    "Synthetic Regulator": 2,
+    "Synthetic Company Disclosure": 2,
+    "Synthetic Central Bank": 1,
+    "Synthetic Academic Source": 2,
+    "Synthetic Market Data Adapter": 1
+  },
+  "topic_coverage": {
+    "missing_topics": [],
+    "required_topics": [
+      "banking_ai",
+      "wealth_management",
+      "regulatory_policy",
+      "operational_resilience",
+      "model_risk",
+      "digital_transformation"
+    ]
+  }
 }

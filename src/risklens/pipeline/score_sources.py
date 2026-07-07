@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from risklens.models import IntelligenceItem, SourceType
 
-
 AUTHORITY_BY_TYPE = {
     SourceType.official: 0.95,
     SourceType.regulatory: 0.95,
@@ -16,5 +15,7 @@ AUTHORITY_BY_TYPE = {
 
 def score_sources(items: list[IntelligenceItem]) -> list[IntelligenceItem]:
     for item in items:
-        item.authority_score = max(item.authority_score, AUTHORITY_BY_TYPE.get(item.source_type, 0.45))
+        item.authority_score = max(
+            item.authority_score, AUTHORITY_BY_TYPE.get(item.source_type, 0.45)
+        )
     return items

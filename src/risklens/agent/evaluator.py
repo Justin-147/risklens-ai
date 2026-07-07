@@ -36,7 +36,10 @@ TOPIC_KEYWORDS = {
 
 def _covered_topics(items: list[IntelligenceItem], topics: list[str]) -> set[str]:
     covered: set[str] = set()
-    corpus = "\n".join(f"{item.title} {item.summary} {item.raw_text} {' '.join(item.risk_tags)}".lower() for item in items)
+    corpus = "\n".join(
+        f"{item.title} {item.summary} {item.raw_text} {' '.join(item.risk_tags)}".lower()
+        for item in items
+    )
     for topic in topics:
         terms = TOPIC_KEYWORDS.get(topic, [topic.replace("_", " ")])
         if any(term.lower() in corpus for term in terms):
@@ -74,7 +77,12 @@ def evaluate_coverage(items: list[IntelligenceItem], plan: IntelligencePlan) -> 
     missing_topics = [topic for topic in plan.required_topics if topic not in covered]
     topic_coverage = len(covered) / max(1, len(plan.required_topics))
 
-    primary_items = [item for item in items if item.evidence_level == EvidenceLevel.primary or item.source_type in {SourceType.official, SourceType.regulatory, SourceType.company}]
+    primary_items = [
+        item
+        for item in items
+        if item.evidence_level == EvidenceLevel.primary
+        or item.source_type in {SourceType.official, SourceType.regulatory, SourceType.company}
+    ]
     source_quality = min(1.0, len(primary_items) / max(1, len(items)) + 0.25)
 
     source_counts = Counter(item.source for item in items)
@@ -85,7 +93,9 @@ def evaluate_coverage(items: list[IntelligenceItem], plan: IntelligencePlan) -> 
     if max_share > max_allowed:
         dominant = source_counts.most_common(1)[0][0]
         source_diversity = max(0.0, 1 - (max_share - max_allowed))
-        source_diversity_issues.append(f"Source concentration: {dominant} accounts for {max_share:.0%} of selected items.")
+        source_diversity_issues.append(
+            f"Source concentration: {dominant} accounts for {max_share:.0%} of selected items."
+        )
 
     item_count_score = min(1.0, len(items) / max(1, plan.min_items))
     valid_url_count = sum(1 for item in items if str(item.url).startswith(("http://", "https://")))
@@ -94,7 +104,10 @@ def evaluate_coverage(items: list[IntelligenceItem], plan: IntelligencePlan) -> 
 
     evidence_quality_issues = []
     source_types = {item.source_type.value for item in items}
-    if "regulatory" in plan.preferred_source_types and SourceType.regulatory.value not in source_types:
+    if (
+        "regulatory" in plan.preferred_source_types
+        and SourceType.regulatory.value not in source_types
+    ):
         evidence_quality_issues.append("Missing regulatory source evidence.")
     if "academic" in plan.preferred_source_types and SourceType.academic.value not in source_types:
         evidence_quality_issues.append("Missing academic source evidence.")
@@ -108,9 +121,15 @@ def evaluate_coverage(items: list[IntelligenceItem], plan: IntelligencePlan) -> 
         + 0.10 * item_count_score
         + 0.10 * evidence_completeness
     )
-    gap_penalty = 0.08 * len(missing_topics) + 0.12 * len(evidence_quality_issues) + 0.08 * len(source_diversity_issues)
+    gap_penalty = (
+        0.08 * len(missing_topics)
+        + 0.12 * len(evidence_quality_issues)
+        + 0.08 * len(source_diversity_issues)
+    )
     coverage_score = max(0.0, min(1.0, coverage_score - gap_penalty))
-    recommended_next_tools = _recommend_tools(missing_topics, evidence_quality_issues + source_diversity_issues)
+    recommended_next_tools = _recommend_tools(
+        missing_topics, evidence_quality_issues + source_diversity_issues
+    )
     should_continue = bool(missing_topics or evidence_quality_issues or source_diversity_issues)
     return CoverageEvaluation(
         coverage_score=round(coverage_score, 3),

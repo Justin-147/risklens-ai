@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from risklens.agent.evaluator import evaluate_coverage
@@ -23,7 +23,7 @@ def make_item(
         url=f"https://example.com/{item_id}",
         source=source,
         source_type=source_type,
-        published_at=datetime.now(timezone.utc),
+        published_at=datetime.now(UTC),
         summary=title,
         raw_text=title,
         risk_tags=["regulatory_risk"],
@@ -68,7 +68,9 @@ def test_orchestrator_stops_at_max_iterations():
 
 def test_memory_records_run(tmp_path):
     memory = JsonMemoryStore(tmp_path / "memory.json")
-    state = AgentRunState(run_id="test-run", profile="financial_services", status=TaskStatus.SUCCESS)
+    state = AgentRunState(
+        run_id="test-run", profile="financial_services", status=TaskStatus.SUCCESS
+    )
     state.processed_items = [make_item("1")]
     memory.record_run(state, "2026-01-01T00:00:00Z", "2026-01-01T00:00:01Z")
     data = memory.load()
@@ -99,6 +101,8 @@ def test_verifier_rejects_missing_sources():
 
 
 def test_report_contains_coverage_limitations_for_partial_success():
-    report = _append_limitations("# Brief\n\n## Source List", ["Missing academic source evidence."], "en")
+    report = _append_limitations(
+        "# Brief\n\n## Source List", ["Missing academic source evidence."], "en"
+    )
     assert "## Coverage Limitations" in report
     assert "Missing academic source evidence." in report

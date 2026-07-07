@@ -2,19 +2,19 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from risklens.config import DATA_DIR
 from risklens.agent.state import AgentRunState, CoverageEvaluation, ToolResult
+from risklens.config import DATA_DIR
 from risklens.models import IntelligenceItem
 
 MEMORY_PATH = DATA_DIR / "memory" / "memory.json"
 
 
 def _now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def _hash(value: str) -> str:
@@ -22,8 +22,8 @@ def _hash(value: str) -> str:
 
 
 class JsonMemoryStore:
-    def __init__(self, path: Path = MEMORY_PATH) -> None:
-        self.path = path
+    def __init__(self, path: Path | None = None) -> None:
+        self.path = path or MEMORY_PATH
         self.path.parent.mkdir(parents=True, exist_ok=True)
 
     def load(self) -> dict[str, Any]:
@@ -36,7 +36,9 @@ class JsonMemoryStore:
 
     def record_run(self, state: AgentRunState, started_at: str, completed_at: str) -> None:
         data = self.load()
-        latest_eval: CoverageEvaluation | None = state.evaluations[-1] if state.evaluations else None
+        latest_eval: CoverageEvaluation | None = (
+            state.evaluations[-1] if state.evaluations else None
+        )
         gaps = []
         if latest_eval:
             gaps.extend(latest_eval.missing_topics)
@@ -79,7 +81,11 @@ class JsonMemoryStore:
                     entry["success_count"] += 1
                     entry["last_success_at"] = _now()
                     total_success = entry["success_count"]
-                    entry["average_item_count"] = round(((entry["average_item_count"] * (total_success - 1)) + len(result.items)) / total_success, 2)
+                    entry["average_item_count"] = round(
+                        ((entry["average_item_count"] * (total_success - 1)) + len(result.items))
+                        / total_success,
+                        2,
+                    )
                 else:
                     entry["failure_count"] += 1
                     entry["last_error"] = "; ".join(result.errors)

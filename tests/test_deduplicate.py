@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from risklens.models import IntelligenceItem
 from risklens.pipeline.deduplicate import deduplicate_items
@@ -10,7 +10,7 @@ def item(item_id: str, title: str) -> IntelligenceItem:
         title=title,
         url=f"https://example.com/{item_id}",
         source="Example",
-        published_at=datetime.now(timezone.utc),
+        published_at=datetime.now(UTC),
     )
 
 

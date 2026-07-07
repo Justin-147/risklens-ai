@@ -1,0 +1,261 @@
+[
+  {
+    "id": "synthetic-market_fetcher_tool-ai_technology_strategy-2",
+    "title": "Synthetic central bank technology note reviews AI operational dependency risk",
+    "url": "https://example.org/risklens-demo/ai-strategy/official-ai-dependency-risk",
+    "source": "Synthetic Central Bank",
+    "source_type": "official",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic official note highlights third-party technology dependency, resilience testing, and governance expectations for AI-enabled operations.",
+    "raw_text": "A synthetic official note highlights third-party technology dependency, resilience testing, and governance expectations for AI-enabled operations.",
+    "authority_score": 0.95,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.8493999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "technology_risk",
+      "operational_risk",
+      "model_risk",
+      "third_party_risk"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-ai_technology_strategy-1",
+    "title": "Synthetic company disclosure launches enterprise agent permission controls",
+    "url": "https://example.org/risklens-demo/ai-strategy/enterprise-agent-permissions",
+    "source": "Synthetic Company Disclosure",
+    "source_type": "company",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic provider disclosure introduces role-based agent permissions, audit logs, tool-use policies, and administrator review workflows.",
+    "raw_text": "A synthetic provider disclosure introduces role-based agent permissions, audit logs, tool-use policies, and administrator review workflows.",
+    "authority_score": 0.85,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7933999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "regulatory_risk",
+      "technology_risk",
+      "operational_risk",
+      "ai_governance_risk"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-ai_technology_strategy-3",
+    "title": "Synthetic company disclosure expands AI safety evaluation program",
+    "url": "https://example.org/risklens-demo/ai-strategy/safety-evaluation-program",
+    "source": "Synthetic Company Disclosure",
+    "source_type": "company",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic disclosure describes red-team testing, eval suites, policy enforcement, and incident escalation for enterprise model releases.",
+    "raw_text": "A synthetic disclosure describes red-team testing, eval suites, policy enforcement, and incident escalation for enterprise model releases.",
+    "authority_score": 0.85,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7933999999999999,
+    "evidence_quality_score": 0.95,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "regulatory_risk",
+      "operational_risk",
+      "model_risk",
+      "ai_governance_risk"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "primary"
+  },
+  {
+    "id": "synthetic-market_fetcher_tool-ai_technology_strategy-1",
+    "title": "Synthetic market data adapter flags AI infrastructure cost volatility",
+    "url": "https://example.org/risklens-demo/ai-strategy/infrastructure-cost-volatility",
+    "source": "Synthetic Market Data Adapter",
+    "source_type": "market",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic infrastructure signal shows GPU rental price volatility and capacity constraints affecting enterprise AI deployment budgets.",
+    "raw_text": "A synthetic infrastructure signal shows GPU rental price volatility and capacity constraints affecting enterprise AI deployment budgets.",
+    "authority_score": 0.75,
+    "relevance_score": 0.6699999999999999,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.79,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7818,
+    "evidence_quality_score": 0.65,
+    "severity": "medium",
+    "urgency": "watch",
+    "risk_tags": [
+      "market_risk",
+      "technology_risk",
+      "opportunity_signal"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-arxiv_fetcher_tool-ai_technology_strategy-1",
+    "title": "Synthetic academic study compares tool-use reliability in enterprise agents",
+    "url": "https://example.org/risklens-demo/ai-strategy/academic-agent-reliability",
+    "source": "Synthetic Academic Source",
+    "source_type": "academic",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic paper evaluates multi-step agent failures, permission leakage, tool-call validation, and monitoring requirements.",
+    "raw_text": "A synthetic paper evaluates multi-step agent failures, permission leakage, tool-call validation, and monitoring requirements.",
+    "authority_score": 0.82,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.79,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7496,
+    "evidence_quality_score": 0.8,
+    "severity": "medium",
+    "urgency": "watch",
+    "risk_tags": [
+      "technology_risk",
+      "model_risk",
+      "ai_governance_risk"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-market_fetcher_tool-ai_technology_strategy-3",
+    "title": "Synthetic industry media tracks shift from AI pilots to governed deployment",
+    "url": "https://example.org/risklens-demo/ai-strategy/governed-ai-deployment",
+    "source": "Synthetic Industry Media",
+    "source_type": "media",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic report describes enterprises adding model inventories, approval workflows, cost controls, and safety checks before scaling AI agents.",
+    "raw_text": "A synthetic report describes enterprises adding model inventories, approval workflows, cost controls, and safety checks before scaling AI agents.",
+    "authority_score": 0.68,
+    "relevance_score": 0.51,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7496,
+    "evidence_quality_score": 0.6,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "operational_risk",
+      "model_risk",
+      "ai_governance_risk",
+      "opportunity_signal"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-rss_fetcher_tool-ai_technology_strategy-2",
+    "title": "Synthetic industry media reports platform dependency concerns in AI stacks",
+    "url": "https://example.org/risklens-demo/ai-strategy/platform-dependency",
+    "source": "Synthetic Industry Media",
+    "source_type": "media",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic article reports that enterprises are reassessing model provider concentration, API dependency, and fallback architecture.",
+    "raw_text": "A synthetic article reports that enterprises are reassessing model provider concentration, API dependency, and fallback architecture.",
+    "authority_score": 0.68,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.97,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7176,
+    "evidence_quality_score": 0.6,
+    "severity": "medium",
+    "urgency": "monitor",
+    "risk_tags": [
+      "technology_risk",
+      "operational_risk",
+      "model_risk",
+      "third_party_risk"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "secondary"
+  },
+  {
+    "id": "synthetic-arxiv_fetcher_tool-ai_technology_strategy-2",
+    "title": "Synthetic academic source benchmarks model evaluation drift in production",
+    "url": "https://example.org/risklens-demo/ai-strategy/model-evaluation-drift",
+    "source": "Synthetic Academic Source",
+    "source_type": "academic",
+    "published_at": "2026-07-06T00:00:00Z",
+    "topic": "AI Technology Strategy",
+    "summary": "A synthetic study finds that offline model evaluations degrade when production workflows introduce new data, tools, and user intents.",
+    "raw_text": "A synthetic study finds that offline model evaluations degrade when production workflows introduce new data, tools, and user intents.",
+    "authority_score": 0.82,
+    "relevance_score": 0.35,
+    "recency_score": 1.0,
+    "novelty_score": 1.0,
+    "risk_or_opportunity_score": 0.43,
+    "duplication_penalty": 0.0,
+    "final_score": 0.7063999999999999,
+    "evidence_quality_score": 0.8,
+    "severity": "medium",
+    "urgency": "watch",
+    "risk_tags": [
+      "model_risk"
+    ],
+    "affected_domains": [
+      "enterprise_ai",
+      "ai_infrastructure",
+      "model_governance"
+    ],
+    "evidence_level": "secondary"
+  }
+]

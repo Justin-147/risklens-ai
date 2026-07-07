@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Protocol
 
 from risklens.agent.config import get_agent_profile
@@ -17,17 +17,26 @@ from risklens.models import EvidenceLevel, IntelligenceItem, SourceType
 class AgentTool(Protocol):
     name: str
 
-    def run(self, profile: str, parameters: dict | None = None) -> ToolResult:
-        ...
+    def run(self, profile: str, parameters: dict | None = None) -> ToolResult: ...
 
 
 def _source_type(value: str) -> SourceType:
-    aliases = {"high_quality_media": SourceType.media, "cybersecurity_source": SourceType.media, "scientific_source": SourceType.official}
-    return aliases.get(value, SourceType(value) if value in SourceType._value2member_map_ else SourceType.other)
+    aliases = {
+        "high_quality_media": SourceType.media,
+        "cybersecurity_source": SourceType.media,
+        "scientific_source": SourceType.official,
+    }
+    return aliases.get(
+        value, SourceType(value) if value in SourceType._value2member_map_ else SourceType.other
+    )
 
 
 def _evidence_level(value: str) -> EvidenceLevel:
-    return EvidenceLevel(value) if value in EvidenceLevel._value2member_map_ else EvidenceLevel.unverified
+    return (
+        EvidenceLevel(value)
+        if value in EvidenceLevel._value2member_map_
+        else EvidenceLevel.unverified
+    )
 
 
 def _metadata(tool_name: str, items: list[IntelligenceItem], elapsed: float) -> dict:
@@ -39,10 +48,29 @@ def _metadata(tool_name: str, items: list[IntelligenceItem], elapsed: float) -> 
     }
 
 
-def synthetic_items_for_tool(profile: str, tool_name: str, omit_source_types: set[str] | None = None) -> list[IntelligenceItem]:
+def _generated_at(parameters: dict | None = None) -> datetime:
+    value = (parameters or {}).get("generated_at")
+    if isinstance(value, datetime):
+        if value.tzinfo is None:
+            return value.replace(tzinfo=UTC)
+        return value.astimezone(UTC)
+    return datetime.now(UTC)
+
+
+def synthetic_items_for_tool(
+    profile: str,
+    tool_name: str,
+    omit_source_types: set[str] | None = None,
+    generated_at: datetime | None = None,
+) -> list[IntelligenceItem]:
     profile_config = get_agent_profile(profile)
     rows = profile_config.get("synthetic_items", {}).get(tool_name, [])
     omit_source_types = omit_source_types or set()
+    published_at = generated_at or datetime.now(UTC)
+    if published_at.tzinfo is None:
+        published_at = published_at.replace(tzinfo=UTC)
+    else:
+        published_at = published_at.astimezone(UTC)
     items: list[IntelligenceItem] = []
     for index, row in enumerate(rows, start=1):
         source_type_value = str(row.get("source_type", "other"))
@@ -53,10 +81,14 @@ def synthetic_items_for_tool(profile: str, tool_name: str, omit_source_types: se
             IntelligenceItem(
                 id=f"synthetic-{tool_name}-{profile}-{index}",
                 title=str(row.get("title", f"Synthetic {tool_name} signal {index}")),
-                url=str(row.get("url", f"https://example.org/risklens-demo/{profile}/{tool_name}/{index}")),
+                url=str(
+                    row.get(
+                        "url", f"https://example.org/risklens-demo/{profile}/{tool_name}/{index}"
+                    )
+                ),
                 source=str(row.get("source", "Synthetic Source")),
                 source_type=_source_type(source_type_value),
-                published_at=datetime.now(timezone.utc),
+                published_at=published_at,
                 summary=summary,
                 raw_text=summary,
                 evidence_level=_evidence_level(str(row.get("evidence_level", "secondary"))),
@@ -79,7 +111,13 @@ class BaseTool:
             elapsed = time.perf_counter() - started
             status = TaskStatus.SUCCESS if items else TaskStatus.PARTIAL_SUCCESS
             errors = [] if items else ["Tool returned no items."]
-            return ToolResult(tool_name=self.name, status=status, items=items, errors=errors, metadata=_metadata(self.name, items, elapsed))
+            return ToolResult(
+                tool_name=self.name,
+                status=status,
+                items=items,
+                errors=errors,
+                metadata=_metadata(self.name, items, elapsed),
+            )
         except Exception as exc:  # pragma: no cover - depends on network/parser behavior
             elapsed = time.perf_counter() - started
             return ToolResult(
@@ -99,7 +137,12 @@ class RSSFetcherTool(BaseTool):
 
     def _run(self, profile: str, parameters: dict) -> list[IntelligenceItem]:
         if self.mock:
-            return synthetic_items_for_tool(profile, self.name, set(parameters.get("omit_source_types", [])))
+            return synthetic_items_for_tool(
+                profile,
+                self.name,
+                set(parameters.get("omit_source_types", [])),
+                _generated_at(parameters),
+            )
         items: list[IntelligenceItem] = []
         for feed in get_agent_profile(profile).get("feeds", {}).get("rss", []):
             items.extend(fetch_rss(feed["url"], feed["source"], limit=parameters.get("limit", 5)))
@@ -111,9 +154,16 @@ class ArxivFetcherTool(BaseTool):
 
     def _run(self, profile: str, parameters: dict) -> list[IntelligenceItem]:
         if self.mock:
-            return synthetic_items_for_tool(profile, self.name, set(parameters.get("omit_source_types", [])))
+            return synthetic_items_for_tool(
+                profile,
+                self.name,
+                set(parameters.get("omit_source_types", [])),
+                _generated_at(parameters),
+            )
         items: list[IntelligenceItem] = []
-        for query in get_agent_profile(profile).get("queries", {}).get("arxiv", [profile.replace("_", " ")]):
+        for query in (
+            get_agent_profile(profile).get("queries", {}).get("arxiv", [profile.replace("_", " ")])
+        ):
             fetched = fetch_arxiv(query, limit=parameters.get("limit", 3))
             for item in fetched:
                 item.source_type = SourceType.academic
@@ -127,10 +177,17 @@ class RegulatoryFetcherTool(BaseTool):
 
     def _run(self, profile: str, parameters: dict) -> list[IntelligenceItem]:
         if self.mock:
-            return synthetic_items_for_tool(profile, self.name, set(parameters.get("omit_source_types", [])))
+            return synthetic_items_for_tool(
+                profile,
+                self.name,
+                set(parameters.get("omit_source_types", [])),
+                _generated_at(parameters),
+            )
         items: list[IntelligenceItem] = []
         for feed in get_agent_profile(profile).get("feeds", {}).get("regulatory", []):
-            fetched = fetch_regulatory(feed["url"], feed["source"], limit=parameters.get("limit", 5))
+            fetched = fetch_regulatory(
+                feed["url"], feed["source"], limit=parameters.get("limit", 5)
+            )
             for item in fetched:
                 item.source_type = SourceType.regulatory
                 item.evidence_level = EvidenceLevel.primary
@@ -143,11 +200,20 @@ class MarketFetcherTool(BaseTool):
 
     def _run(self, profile: str, parameters: dict) -> list[IntelligenceItem]:
         if self.mock:
-            return synthetic_items_for_tool(profile, self.name, set(parameters.get("omit_source_types", [])))
+            return synthetic_items_for_tool(
+                profile,
+                self.name,
+                set(parameters.get("omit_source_types", [])),
+                _generated_at(parameters),
+            )
         rows = fetch_market_signals()
         items: list[IntelligenceItem] = []
         for idx, row in enumerate(rows, start=1):
-            summary = str(row.get("summary") or row.get("description") or "Public market signal collected by market adapter.")
+            summary = str(
+                row.get("summary")
+                or row.get("description")
+                or "Public market signal collected by market adapter."
+            )
             items.append(
                 IntelligenceItem(
                     id=f"market-{profile}-{idx}",
@@ -155,7 +221,7 @@ class MarketFetcherTool(BaseTool):
                     url=str(row.get("url") or "https://example.org/risklens-demo/market-signal"),
                     source=str(row.get("source") or "Market Adapter"),
                     source_type=SourceType.market,
-                    published_at=datetime.now(timezone.utc),
+                    published_at=_generated_at(parameters),
                     summary=summary,
                     raw_text=summary,
                     evidence_level=EvidenceLevel.secondary,
@@ -169,11 +235,18 @@ class USGSFetcherTool(BaseTool):
 
     def _run(self, profile: str, parameters: dict) -> list[IntelligenceItem]:
         if self.mock:
-            return synthetic_items_for_tool(profile, self.name, set(parameters.get("omit_source_types", [])))
+            return synthetic_items_for_tool(
+                profile,
+                self.name,
+                set(parameters.get("omit_source_types", [])),
+                _generated_at(parameters),
+            )
         rows = fetch_usgs_events()
         items: list[IntelligenceItem] = []
         for idx, row in enumerate(rows, start=1):
-            summary = str(row.get("summary") or row.get("place") or "USGS public scientific signal.")
+            summary = str(
+                row.get("summary") or row.get("place") or "USGS public scientific signal."
+            )
             items.append(
                 IntelligenceItem(
                     id=f"usgs-{idx}",
@@ -181,7 +254,7 @@ class USGSFetcherTool(BaseTool):
                     url=str(row.get("url") or "https://earthquake.usgs.gov/"),
                     source="USGS",
                     source_type=SourceType.official,
-                    published_at=datetime.now(timezone.utc),
+                    published_at=_generated_at(parameters),
                     summary=summary,
                     raw_text=summary,
                     evidence_level=EvidenceLevel.primary,

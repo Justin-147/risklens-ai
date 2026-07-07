@@ -1,5 +1,5 @@
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from risklens.agent.config import get_agent_profile, load_agent_config
 from risklens.agent.orchestrator import run_agent
@@ -17,7 +17,7 @@ def make_item(source_type=SourceType.regulatory, evidence_level=EvidenceLevel.pr
         url="https://example.org/risklens-demo/severity-test",
         source="Synthetic Regulator",
         source_type=source_type,
-        published_at=datetime.now(timezone.utc),
+        published_at=datetime.now(UTC),
         summary="Cybersecurity and model risk control signal.",
         raw_text="Cybersecurity and model risk control signal.",
         risk_tags=tags or ["model_risk"],
@@ -49,8 +49,14 @@ def test_dashboard_matches_pipeline_agent_and_all(tmp_path):
     agent.write_text("[]", encoding="utf-8")
     assert processed_files_for_profile(processed, "financial_services", "Pipeline") == [pipeline]
     assert processed_files_for_profile(processed, "financial_services", "Agent") == [agent]
-    assert set(processed_files_for_profile(processed, "financial_services", "All")) == {pipeline, agent}
-    assert report_path_for_processed(reports, agent, "zh").name == "2026-07-04_financial_services_agent_zh.md"
+    assert set(processed_files_for_profile(processed, "financial_services", "All")) == {
+        pipeline,
+        agent,
+    }
+    assert (
+        report_path_for_processed(reports, agent, "zh").name
+        == "2026-07-04_financial_services_agent_zh.md"
+    )
 
 
 def test_severity_high_for_primary_regulatory_model_risk():
@@ -60,7 +66,9 @@ def test_severity_high_for_primary_regulatory_model_risk():
 
 
 def test_severity_medium_watch_for_academic_signal():
-    severity, urgency = assign_severity_and_urgency(make_item(SourceType.academic, EvidenceLevel.secondary, ["model_risk"]))
+    severity, urgency = assign_severity_and_urgency(
+        make_item(SourceType.academic, EvidenceLevel.secondary, ["model_risk"])
+    )
     assert severity == "medium"
     assert urgency == "watch"
 
@@ -83,8 +91,13 @@ def test_synthetic_mock_data_has_diverse_sources():
 
 
 def test_simulate_gap_creates_retry_decision_and_trace():
-    state = run_agent("financial_services", mock=True, max_iterations=3, max_items=8, simulate_gap=True)
+    state = run_agent(
+        "financial_services", mock=True, max_iterations=3, max_items=8, simulate_gap=True
+    )
     assert state.retry_decisions
     trace = json.loads(open(state.final_report_paths["trace"], encoding="utf-8").read())
     assert trace["retry_decisions"]
-    assert len(trace.get("coverage_history", [])) >= 2 or "could not improve" in " ".join(trace.get("retry_decisions", [])).lower()
+    assert (
+        len(trace.get("coverage_history", [])) >= 2
+        or "could not improve" in " ".join(trace.get("retry_decisions", [])).lower()
+    )

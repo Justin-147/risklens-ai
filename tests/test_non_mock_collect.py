@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from risklens.main import run_report
 from risklens.models import EvidenceLevel, IntelligenceItem, SourceType
@@ -16,7 +16,7 @@ def test_non_mock_mode_uses_fetchers(monkeypatch):
                 url="https://example.com/fetcher-item",
                 source="Test Regulator",
                 source_type=SourceType.regulatory,
-                published_at=datetime.now(timezone.utc),
+                published_at=datetime.now(UTC),
                 summary="Regulatory policy signal for banking AI model risk.",
                 raw_text="Regulatory policy signal for banking AI model risk.",
                 evidence_level=EvidenceLevel.primary,

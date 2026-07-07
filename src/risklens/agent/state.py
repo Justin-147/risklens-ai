@@ -24,7 +24,9 @@ class IntelligencePlan(BaseModel):
     required_tools: list[str]
     min_items: int = 8
     max_iterations: int = 3
-    source_diversity_constraints: dict[str, float] = Field(default_factory=lambda: {"max_single_source_share": 0.30})
+    source_diversity_constraints: dict[str, float] = Field(
+        default_factory=lambda: {"max_single_source_share": 0.30}
+    )
 
 
 class ToolCall(BaseModel):
