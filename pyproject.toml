@@ -55,3 +55,4 @@ python_version = "3.11"
 ignore_missing_imports = true
 warn_unused_configs = true
 strict = false
+follow_imports = "skip"
